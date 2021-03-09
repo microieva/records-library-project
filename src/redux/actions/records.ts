@@ -13,14 +13,7 @@ export function getRecords(records: Record[]): GetRecordsAction {
 export function fetchData() {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await fetch("http://localhost:3000/api/v1/records", {
-        method: "GET",
-        credentials: "same-origin", //include, same-origin
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch("http://localhost:3000/api/v1/records");
       const data = await response.json();
       dispatch(getRecords(data));
     } catch (e) {
