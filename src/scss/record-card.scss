@@ -1,5 +1,14 @@
-
-
 img {
     width: 20rem;
+}
+
+.card-container {
+    width: 20rem;
+    height: 25rem;
+    display:flex;
+    flex-direction: column;
+    margin: 1rem 0.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.2s;
 }

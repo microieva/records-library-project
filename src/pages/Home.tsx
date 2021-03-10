@@ -13,15 +13,13 @@ const Home = () => {
   console.log("RECORDS HOME: ", records);
   return (
     <div className="home-container">
-      <ul className="list">
-        {records.map((record, i) => {
-          return (
-            <li key={i}>
-              <RecordCard record={record} />
-            </li>
-          );
-        })}
-      </ul>
+      {records.map((record, i) => {
+        return (
+          <li style={{ listStyle: "none" }} key={i}>
+            <RecordCard record={record} />
+          </li>
+        );
+      })}
     </div>
   );
 };

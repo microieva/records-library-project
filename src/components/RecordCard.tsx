@@ -10,7 +10,7 @@ export const RecordCard = (props: RecordCardProps) => {
   const { record } = props;
 
   return (
-    <div className="record-card--container">
+    <div className="card-container">
       <h2>{record.title}</h2>
       <img src={record.image} alt="record" />
     </div>
