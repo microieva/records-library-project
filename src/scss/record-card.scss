@@ -15,26 +15,25 @@ img {
     overflow: hidden;
     transition: 0.2s;
 
-    color: var.$orange;
-    border: 1px solid var.$orange;
+    color: var.$green;
+    border: var.$border-green;
     border-radius: var.$big-radius;
 }
 
 .div-image {
     height: 20rem;
     width: 20rem;
-    //border: 3px solid var.$orange;
     border-radius: var.$record-radius;
 }
 
 .btn {
-    @include mixins.button;
+    @include mixins.button-green;
 }
 
 .btn:hover {
-    @include mixins.btn-hover;
+    @include mixins.btn-green--hover;
 }
 
-.btn-disabled:disabled{
+/*.btn-disabled:disabled{
     @include mixins.btn-disabled;
-}
+}*/

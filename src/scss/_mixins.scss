@@ -1,25 +1,61 @@
 @use "variables" as var;
 
-@mixin button {
+@mixin button-orange {
     height: 2rem;
     width: 6rem;
     background: var.$background_dark;
     border-radius: var.$small-radius;
     color: var.$orange;
-    border: var.$border;
+    border: var.$border-orange;
     margin: 1rem 1rem;
 }
 
-@mixin btn-hover {
+@mixin btn-orange--hover {
     cursor: pointer;
     background: var.$orange;
     color: var.$background_dark;
 }
 
-@mixin btn-disabled {
+@mixin button-green {
+    height: 2rem;
+    width: 6rem;
+    background: var.$background_dark;
+    border-radius: var.$small-radius;
+    color: var.$green;
+    border: var.$border-green;
+    margin: 1rem 1rem;
+}
+
+@mixin btn-green--hover {
+    cursor: pointer;
+    background: var.$green;
+    color: var.$background_dark;
+}
+
+@mixin button-blue {
+    height: 2rem;
+    width: 6rem;
+    background: var.$background_dark;
+    border-radius: var.$small-radius;
+    color: var.$blue;
+    border: var.$border-blue;
+    margin: 1rem 1rem;
+}
+
+@mixin btn-blue--hover {
+    cursor: pointer;
+    background: var.$blue;
+    color: var.$background_dark;
+}
+
+
+
+/*@mixin btn--disabled {
     background: var.$background_dark;
     color: grey;
     border: 1px solid grey;
-}
+}*/
+
+
 
 

@@ -1,8 +1,16 @@
 $background_dark: rgb(31, 41, 53);
-$orange: rgb(223, 158, 39);
+$background_header: rgb(11, 14, 19);
 
-$border: 1px solid $orange;
-$small-radius: 3px;
+$green: rgb(94, 122, 85);
+$blue: rgb(85, 102, 122);
+$orange: rgb(161, 109, 78);
+
+
+$border-orange: 1px solid $orange;
+$border-green: 1px solid $green;
+$border-blue: 1px solid $blue;
+
+$small-radius: 5px;
 $big-radius: 10px;
 $record-radius: 50%;
 
