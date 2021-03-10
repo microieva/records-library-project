@@ -1,0 +1,18 @@
+@use "variables";
+
+@mixin button {
+    height: 2rem;
+    width: 6rem;
+    background: $background_dark;
+    border-radius: $border-radius;
+    color: $orange;
+    border: $border;
+    margin: 1rem 0;
+}
+
+@mixin list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;   
+}
+

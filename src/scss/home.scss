@@ -1,0 +1,7 @@
+@use '_mixins';
+@use '_variables';
+
+.list {
+    @include mixins.list
+}
+
