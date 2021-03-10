@@ -12,7 +12,13 @@ export const RecordCard = (props: RecordCardProps) => {
   return (
     <div className="card-container">
       <h2>{record.title}</h2>
-      <img src={record.image} alt="record" />
+      <div className="div-image">
+        <img src={record.image} alt="record" />
+      </div>
+      <div className="btn-group">
+        <button className="btn">Listen</button>
+        <button className="btn">Borrow</button>
+      </div>
     </div>
   );
 };

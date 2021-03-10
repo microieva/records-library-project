@@ -1,14 +1,40 @@
+@use '_variables' as var;
+@use '_mixins';
+
 img {
+    height: 20rem;
     width: 20rem;
+    border-radius: var.$record-radius;
 }
 
 .card-container {
     width: 20rem;
-    height: 25rem;
     display:flex;
     flex-direction: column;
     margin: 1rem 0.5rem;
-    cursor: pointer;
     overflow: hidden;
     transition: 0.2s;
+
+    color: var.$orange;
+    border: 1px solid var.$orange;
+    border-radius: var.$big-radius;
+}
+
+.div-image {
+    height: 20rem;
+    width: 20rem;
+    //border: 3px solid var.$orange;
+    border-radius: var.$record-radius;
+}
+
+.btn {
+    @include mixins.button;
+}
+
+.btn:hover {
+    @include mixins.btn-hover;
+}
+
+.btn-disabled:disabled{
+    @include mixins.btn-disabled;
 }

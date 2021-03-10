@@ -1,5 +1,10 @@
-@import './scss/style.scss';
+@use './scss/style.scss';
+@use 'scss/_variables' as var;
+
 
 .App {
+    font-family: 'Arial';
     text-align: center;
+    margin:0;
+    background: var.$background_dark;
 }
