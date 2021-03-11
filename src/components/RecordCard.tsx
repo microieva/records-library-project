@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { Record } from "../types";
 
@@ -16,7 +17,14 @@ export const RecordCard = (props: RecordCardProps) => {
         <img src={record.image} alt="record" />
       </div>
       <div className="btn-group">
-        <button className="btn">Listen</button>
+        <button className="btn">
+          <Link
+            to={`/records/${record.title}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            Listen
+          </Link>
+        </button>
         <button className="btn">Borrow</button>
       </div>
     </div>

@@ -18,7 +18,7 @@ export function getCountries(countries: Country[]): GetCountriesAction {
 export function fetchData()  {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await fetch("https://restcountries.eu/rest/v2/all");
+      const response = await fetch("https://localhost:3001/api/v1/users");
       const data = await response.json();
       dispatch(getCountries(data))
     } catch (e) {

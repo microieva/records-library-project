@@ -3,7 +3,7 @@
 @mixin button-orange {
     height: 2rem;
     width: 6rem;
-    background: var.$background_dark;
+    background: transperent;
     border-radius: var.$small-radius;
     color: var.$orange;
     border: var.$border-orange;
@@ -19,7 +19,7 @@
 @mixin button-green {
     height: 2rem;
     width: 6rem;
-    background: var.$background_dark;
+    background: transperent;
     border-radius: var.$small-radius;
     color: var.$green;
     border: var.$border-green;
@@ -35,7 +35,7 @@
 @mixin button-blue {
     height: 2rem;
     width: 6rem;
-    background: var.$background_dark;
+    background: transperent;
     border-radius: var.$small-radius;
     color: var.$blue;
     border: var.$border-blue;

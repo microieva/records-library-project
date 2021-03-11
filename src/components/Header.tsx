@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //import { User } from '../types';
 import "../scss/header.scss";
@@ -15,7 +16,13 @@ export const Header = (props: HeaderProps) => {
         <nav>
           <h1>Welcome to My Records!</h1>
           <div className="btn-group">
-            <button className="btn">Sing In</button>
+            <Link
+              to={"/google/login"}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <button className="btn">Sign In</button>
+            </Link>
+
             <button className="btn">Sing Up</button>
           </div>
         </nav>
