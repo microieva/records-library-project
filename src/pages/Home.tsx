@@ -1,17 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
-//import { Link } from 'react-router-dom'
 
-import { useRecords } from "../hooks/useRecords";
-import { AppState } from "../types";
 import { Header } from "../components/Header";
 import { RecordCard } from "../components/RecordCard";
+import { Record } from "../types";
 
-const Home = () => {
-  useRecords();
-  const records = useSelector((state: AppState) => state.records.records);
+type HomeProps = {
+  records: Record[];
+};
+
+const Home = (props: HomeProps) => {
+  const { records } = props;
   const user = false;
-  console.log("RECORDS HOME: ", records);
 
   return (
     <div className="home-container">
