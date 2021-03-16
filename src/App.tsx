@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { useRecords } from "./hooks/useRecords";
 import { AppState } from "./types";
 import Home from "./pages/Home";
+import { Header } from "./components/Header";
 import LoginPage from "./pages/LoginPage";
 import RecordPage from "./pages/RecordPage";
 import "./App.scss";
@@ -12,9 +13,11 @@ import "./App.scss";
 function App() {
   useRecords();
   const records = useSelector((state: AppState) => state.records.records);
+  const user = false;
 
   return (
     <div className="App">
+      <Header user={user} />
       <Router>
         <Switch>
           <Route exact path="/" component={() => <Home records={records} />} />
