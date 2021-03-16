@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
-//import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AudioPlayer from "material-ui-audio-player";
 
@@ -23,10 +23,12 @@ const RecordPage = (props: RecordPageProps) => {
 
   console.log("RECORD PAGE: ", records);
   let record = records.find((r) => r.title === title);
-  //const history = useHistory()
-  /*const handleClick =()=>{
+  const history = useHistory();
+
+  const handleClickBack = () => {
     history.push("/");
-  }*/
+  };
+
   console.log("RECORD: ", record);
   const muiTheme = createMuiTheme({});
 
@@ -34,6 +36,13 @@ const RecordPage = (props: RecordPageProps) => {
     <div className="record-page-container">
       {record ? (
         <div className="flex--column">
+          <div className="btn-group">
+            <button className="btn" onClick={handleClickBack}>
+              Go Back
+            </button>
+            <button className="btn">Borrow</button>
+          </div>
+
           <div className="flex--row">
             <div>
               <img src={record.image} alt="record" />

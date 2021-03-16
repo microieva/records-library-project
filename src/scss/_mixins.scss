@@ -3,11 +3,11 @@
 @mixin button-orange {
     height: 2rem;
     width: 6rem;
-    background: transperent;
+    background: inherit;
     border-radius: var.$small-radius;
     color: var.$orange;
     border: var.$border-orange;
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
 }
 
 @mixin btn-orange--hover {
@@ -19,11 +19,11 @@
 @mixin button-green {
     height: 2rem;
     width: 6rem;
-    background: transperent;
+    background: inherit;
     border-radius: var.$small-radius;
     color: var.$green;
     border: var.$border-green;
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
 }
 
 @mixin btn-green--hover {
@@ -35,11 +35,11 @@
 @mixin button-blue {
     height: 2rem;
     width: 6rem;
-    background: transperent;
+    background: inherit;
     border-radius: var.$small-radius;
     color: var.$blue;
     border: var.$border-blue;
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
 }
 
 @mixin btn-blue--hover {

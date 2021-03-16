@@ -30,6 +30,11 @@ img {
     border-radius: var.$record-radius;
 }
 
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
 .btn {
     @include mixins.button-green;
 }
