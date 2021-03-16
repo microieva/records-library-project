@@ -1,7 +1,10 @@
 import React from "react";
 import { useParams } from "react-router";
 //import { useHistory } from "react-router-dom";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import AudioPlayer from "material-ui-audio-player";
 
+import { useStyles } from "../hooks/useStyles";
 import { Record } from "../types";
 
 import "../scss/record-page.scss";
@@ -25,6 +28,7 @@ const RecordPage = (props: RecordPageProps) => {
     history.push("/");
   }*/
   console.log("RECORD: ", record);
+  const muiTheme = createMuiTheme({});
 
   return (
     <div className="record-page-container">
@@ -43,12 +47,29 @@ const RecordPage = (props: RecordPageProps) => {
                 {record.label}, {record.publishedYear}
               </h3>
               <p>genres:</p>
-              <h3>{record.genres}</h3>
+              <h3>{record.genres.map((genre) => genre).join(", ")}</h3>
             </div>
           </div>
           <div className="tracks-div">
             {record.tracks.map((track) => (
-              <p>{track.name}</p>
+              <div className="track-div">
+                <p>{track.name}</p>
+                <ThemeProvider theme={muiTheme}>
+                  <AudioPlayer
+                    elevation={1}
+                    width="30%"
+                    variation="default"
+                    spacing={3}
+                    download={false}
+                    autoplay={false}
+                    order="standart"
+                    //preload="auto"
+                    loop={false}
+                    src={track.sampleUrl}
+                    useStyles={useStyles}
+                  />
+                </ThemeProvider>
+              </div>
             ))}
           </div>
         </div>

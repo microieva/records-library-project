@@ -43,3 +43,9 @@ p {
 .tracks.div {
     padding-top: 1rem;
 }
+
+.track-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
