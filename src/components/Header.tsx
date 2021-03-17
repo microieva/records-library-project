@@ -1,5 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import GoogleLogin from "react-google-login";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+
+import { loginSuccess } from "../redux/actions";
 
 //import { User } from '../types';
 import "../scss/header.scss";
@@ -10,27 +16,54 @@ type HeaderProps = {
 
 export const Header = (props: HeaderProps) => {
   const { user } = props;
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const responseGoogle = async (response: any) => {
+    const res = await axios.post("http://localhost:3001/api/v1/users/login", {
+      id_token: response.tokenObj.id_token,
+    });
+
+    console.log("res ", res);
+    if (res.status === 200) {
+      dispatch(loginSuccess(res.data, history));
+    } else {
+      //dispatch(loginFailed())
+      alert("Login Failed");
+    }
+  };
+
   return (
     <header>
       {!user ? (
         <nav>
           <h1>Welcome to My Records!</h1>
           <div className="btn-group">
-            <Link
-              to={"/google/login"}
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <button className="btn">Sign In</button>
-            </Link>
+            <GoogleLogin
+              clientId="391700730466-tdi0a11fnhht3tl7budat5utlephuad9.apps.googleusercontent.com"
+              buttonText="Sign In"
+              render={(renderProps) => (
+                <button
+                  className="btn"
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                >
+                  Sign In
+                </button>
+              )}
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={"single_host_origin"}
+            />
 
-            <button className="btn">Sing Up</button>
+            <button className="btn">Selection</button>
           </div>
         </nav>
       ) : (
         <nav>
           <h1>Welcome {user}!</h1>
           <div className="btn-group">
-            <button className="btn">Selected Records</button>
+            <button className="btn">Selection</button>
           </div>
         </nav>
       )}

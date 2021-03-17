@@ -21,7 +21,6 @@ const RecordPage = (props: RecordPageProps) => {
   const { records } = props;
   const { title } = useParams<RouteParams>();
 
-  console.log("RECORD PAGE: ", records);
   let record = records.find((r) => r.title === title);
   const history = useHistory();
 
@@ -29,7 +28,6 @@ const RecordPage = (props: RecordPageProps) => {
     history.push("/");
   };
 
-  console.log("RECORD: ", record);
   const muiTheme = createMuiTheme({
     palette: {},
   });
@@ -62,8 +60,8 @@ const RecordPage = (props: RecordPageProps) => {
             </div>
           </div>
           <div className="tracks-div">
-            {record.tracks.map((track) => (
-              <div className="track-div">
+            {record.tracks.map((track, i) => (
+              <div key={i} className="track-div">
                 <p>{track.name}</p>
                 <ThemeProvider theme={muiTheme}>
                   <AudioPlayer
