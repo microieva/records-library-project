@@ -67,7 +67,6 @@ const RecordPage = (props: RecordPageProps) => {
                 <p>{track.name}</p>
                 <ThemeProvider theme={muiTheme}>
                   <AudioPlayer
-                    width="60%"
                     elevation={1}
                     variation="default"
                     spacing={3}

@@ -4,14 +4,15 @@ export const useStyles = makeStyles((theme: any) => {
   return {
     root: {
       [theme.breakpoints.down("sm")]: {
-        height: "1rem",
-        padding: "1rem",
+        //height: "1rem",
+        //padding: "1rem",
       },
 
       backgroundColor: "rgb(30, 33, 41)",
       border: "1px solid rgb(94, 122, 85)",
       height: "3rem",
-      margin: "0.2rem",
+      margin: "0.2rem 0",
+      maxWidth: "60%",
     },
     playIcon: {
       color: "rgb(94, 122, 85)",
