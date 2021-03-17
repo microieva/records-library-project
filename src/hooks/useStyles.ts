@@ -4,15 +4,14 @@ export const useStyles = makeStyles((theme: any) => {
   return {
     root: {
       [theme.breakpoints.down("sm")]: {
-        //width: '100%'
-
         height: "1rem",
         padding: "1rem",
       },
-      "& .MiuPaper-root": {
-        backgroundColor: "transperent",
-        border: "1px solid rgb(94, 122, 85)",
-      },
+
+      backgroundColor: "rgb(30, 33, 41)",
+      border: "1px solid rgb(94, 122, 85)",
+      height: "3rem",
+      margin: "0.2rem",
     },
     playIcon: {
       color: "rgb(94, 122, 85)",
@@ -28,6 +27,7 @@ export const useStyles = makeStyles((theme: any) => {
     },
     progressTime: {
       color: "rgb(94, 122, 85)",
+      fontSize: "1rem",
     },
     mainSlider: {
       fontSize: "1rem",

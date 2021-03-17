@@ -30,7 +30,9 @@ const RecordPage = (props: RecordPageProps) => {
   };
 
   console.log("RECORD: ", record);
-  const muiTheme = createMuiTheme({});
+  const muiTheme = createMuiTheme({
+    palette: {},
+  });
 
   return (
     <div className="record-page-container">
@@ -65,8 +67,8 @@ const RecordPage = (props: RecordPageProps) => {
                 <p>{track.name}</p>
                 <ThemeProvider theme={muiTheme}>
                   <AudioPlayer
+                    width="60%"
                     elevation={1}
-                    width="30%"
                     variation="default"
                     spacing={3}
                     download={false}
