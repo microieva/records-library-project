@@ -13,7 +13,7 @@ import "./App.scss";
 function App() {
   useRecords();
   const records = useSelector((state: AppState) => state.records.records);
-  const user = false;
+  const user = useSelector((state: AppState) => state.user.user);
 
   /*useEffect(() => {
     axios.get('http://localhost:3001/api/v1/records')

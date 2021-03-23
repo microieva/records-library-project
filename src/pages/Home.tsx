@@ -9,17 +9,19 @@ type HomeProps = {
 
 const Home = (props: HomeProps) => {
   const { records } = props;
-
+  console.log(records);
   return (
     <div className="home-container">
       <div className="list-container">
-        {records.map((record, i) => {
-          return (
-            <li style={{ listStyle: "none" }} key={i}>
-              <RecordCard record={record} />
-            </li>
-          );
-        })}
+        {records
+          ? records.map((record, i) => {
+            return (
+              <li style={{ listStyle: "none" }} key={i}>
+                <RecordCard record={record} />
+              </li>
+            );
+          })
+          : false}
       </div>
     </div>
   );

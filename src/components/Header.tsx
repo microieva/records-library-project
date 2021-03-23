@@ -7,11 +7,11 @@ import { useHistory } from "react-router-dom";
 
 import { loginSuccess } from "../redux/actions";
 
-//import { User } from '../types';
+import { User } from "../types";
 import "../scss/header.scss";
 
 type HeaderProps = {
-  user: boolean;
+  user: User;
 };
 
 export const Header = (props: HeaderProps) => {
@@ -20,11 +20,11 @@ export const Header = (props: HeaderProps) => {
   const history = useHistory();
 
   const responseGoogle = async (response: any) => {
-    const res = await axios.post("http://localhost:3001/api/v1/users/login", {
+    const res = await axios.post("/users/google/login", {
       id_token: response.tokenObj.id_token,
     });
 
-    console.log("res ", res);
+    console.log("res from HEADER", res);
     if (res.status === 200) {
       dispatch(loginSuccess(res.data, history));
     } else {
@@ -61,8 +61,9 @@ export const Header = (props: HeaderProps) => {
         </nav>
       ) : (
         <nav>
-          <h1>Welcome {user}!</h1>
+          <h1>Welcome {user.name}!</h1>
           <div className="btn-group">
+            <button className="btn">Sign Out</button>
             <button className="btn">Selection</button>
           </div>
         </nav>

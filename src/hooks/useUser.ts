@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { fetchRecords } from "../redux/actions/records";
+import { fetchUser } from "../redux/actions/user";
 
-export const useRecords = () => {
+export const useUser = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRecords());
+    dispatch(fetchUser());
   }, [dispatch]);
 };

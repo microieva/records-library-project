@@ -1,8 +1,9 @@
 export const GET_RECORDS = "GET_RECORDS";
+export const GET_USER = "GET_USER";
 
 export type AppState = {
   records: RecordsState;
-  users: UsersState;
+  user: UserState;
 };
 
 export type RecordsState = {
@@ -27,14 +28,23 @@ export type Record = {
   favorite: boolean;
 };
 
-export type UsersState = {
-  users: User[];
+export type UserState = {
+  user: User;
 };
 
 export type User = {
   name: string;
   email: string;
   borrowedRecords: string[];
+  isAdmin: boolean;
+};
+
+export type UserActions = GetUserAction;
+export type GetUserAction = {
+  type: typeof GET_USER;
+  payload: {
+    user: User;
+  };
 };
 
 export type RecordActions = GetRecordsAction;

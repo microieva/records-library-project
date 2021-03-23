@@ -10,8 +10,13 @@ const initState: AppState = {
   records: {
     records: [],
   },
-  users: {
-    users: [],
+  user: {
+    user: {
+      name: "",
+      email: "",
+      borrowedRecords: [],
+      isAdmin: false,
+    },
   },
 };
 

@@ -10,7 +10,7 @@ export function getRecords(records: Record[]): GetRecordsAction {
   };
 }
 
-export function fetchData() {
+export function fetchRecords() {
   return async (dispatch: Dispatch) => {
     try {
       const response = await fetch("http://localhost:3001/api/v1/records");
