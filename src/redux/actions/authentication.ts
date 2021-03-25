@@ -3,6 +3,7 @@ type LoginResponse = {
     email: string;
     name: string;
     isAdmin: boolean;
+    borrowedRecords: string[];
     //photo: string
     _id: string;
   };

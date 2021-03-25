@@ -1,16 +1,16 @@
 import { combineReducers } from "redux";
 
 import records from "./records";
-import auth from "./authentication";
-import user from "./user";
+import user from "./authentication";
+//import user from "./user";
 //import cart from './cart'
 //import ui from './ui'
 
 const createRootReducer = () =>
   combineReducers({
     records,
-    auth,
     user,
+    //user,
     //cart,
     //ui
   });

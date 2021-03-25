@@ -12,6 +12,7 @@ import "./index.css";
 
 const store = makeStore();
 //const history = createBrowserHistory();
+
 // there are 2 types of interceptors, req & res
 // req: everytime you send a request from your app using axios,
 //your req will not go straight to the server, it will go thru
@@ -35,7 +36,7 @@ axios.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      //store.dispatch(logout(history));
+      //store.dispatch(logout(history)); throws typescript error
     }
     return Promise.reject(error);
   }
