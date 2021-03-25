@@ -15,7 +15,7 @@ function* googleLogin(action: LoginSuccessAction) {
 function* logout(action: Logout) {
   const history = action.payload;
   try {
-    history.push("/");
+    history.push("/login");
   } catch (error) {}
 }
 

@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { AppState } from "../types";
-import { loginSuccess, logout } from "../redux/actions";
+import { loginSuccess } from "../redux/actions";
 
 //import { User } from "../types";
 import "../scss/header.scss";
@@ -20,7 +20,7 @@ import "../scss/header.scss";
 export const Header = () => {
   //const { user } = props;
   const user = useSelector((state: AppState) => state.user.user);
-  console.log("state.user.user from HEADER", user);
+  console.log("user from HEADER", user);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -39,9 +39,8 @@ export const Header = () => {
   };
 
   const handleLogout = () => {
-    dispatch(logout(history));
-    //set user empty?
-    localStorage.removeItem("token");
+    //dispatch(logout(history))
+    //localStorage.removeItem('token') teisingai
   };
 
   return (
