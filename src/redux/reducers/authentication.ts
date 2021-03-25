@@ -1,18 +1,23 @@
 //import { ActionTypes } from '../actions'
-//import { LoginSuccessAction } from '../actions'
+import { LoginSuccessAction } from "../actions";
+//import { UserState } from '../../types'
 
 export type AuthenticationState = {
-  user: any;
+  user: {};
 };
 
 const initialState: AuthenticationState = {
   user: {},
 };
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (
+  state = initialState,
+  action: LoginSuccessAction
+): AuthenticationState => {
   switch (action.type) {
   case "LOGIN_SUCCESS":
-    const userData = action.payload.user;
+    const userData = action.payload.loginResponse.user;
+    console.log("DATA", userData);
     return { user: userData };
   default:
     return state;

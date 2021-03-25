@@ -3,15 +3,15 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import axios from "axios";
-import { createBrowserHistory } from "history";
+//import { createBrowserHistory } from "history";
 
 import App from "./App";
 import makeStore from "./redux/store";
-import { logout } from "./redux/actions";
+//import { logout } from "./redux/actions";
 import "./index.css";
 
 const store = makeStore();
-const history = createBrowserHistory();
+//const history = createBrowserHistory();
 // there are 2 types of interceptors, req & res
 // req: everytime you send a request from your app using axios,
 //your req will not go straight to the server, it will go thru
@@ -35,7 +35,7 @@ axios.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      store.dispatch(logout(history));
+      //store.dispatch(logout(history));
     }
     return Promise.reject(error);
   }

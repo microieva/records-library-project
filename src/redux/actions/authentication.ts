@@ -23,7 +23,7 @@ export const loginSuccess = (loginResponse: LoginResponse, history: any) => {
 
 export type Logout = {
   type: "LOGOUT";
-  //payload here is history object???
+  //payload here is history object?
   payload: any;
 };
 

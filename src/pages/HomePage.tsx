@@ -1,15 +1,15 @@
 import React from "react";
 
 import { Header } from "../components/Header";
-import { RecordView } from "../components/RecordView";
+import { List } from "../components/List";
 
-const RecordPage = () => {
+const HomePage = () => {
   return (
     <div>
       <Header />
-      <RecordView />
+      <List />
     </div>
   );
 };
 
-export default RecordPage;
+export default HomePage;

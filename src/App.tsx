@@ -1,36 +1,19 @@
 // import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
-//import axios from 'axios'
 
-import { useRecords } from "./hooks/useRecords";
-import { AppState } from "./types";
 import { Header } from "./components/Header";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import RecordPage from "./pages/RecordPage";
 import "./App.scss";
 
 function App() {
-  useRecords();
-  const records = useSelector((state: AppState) => state.records.records);
-  const user = useSelector((state: AppState) => state.user.user);
-
-  /*useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/records')
-  })*/
-
   return (
     <div className="App">
-      <Header user={user} />
       <Router>
         <Switch>
-          <Route
-            exact
-            path="/records/:title"
-            component={() => <RecordPage records={records} />}
-          />
-          <Route exact path="/login" component={() => <Header user={user} />} />
-          <Route exact path="/" component={() => <Home records={records} />} />
+          <Route exact path="/records/:title" component={RecordPage} />
+          <Route exact path="/login" component={Header} />
+          <Route exact path="/" component={HomePage} />
         </Switch>
       </Router>
     </div>

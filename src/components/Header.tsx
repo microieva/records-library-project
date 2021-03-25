@@ -4,18 +4,23 @@ import GoogleLogin from "react-google-login";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
+import { AppState } from "../types";
 import { loginSuccess } from "../redux/actions";
 
-import { User } from "../types";
+//import { User } from "../types";
 import "../scss/header.scss";
 
-type HeaderProps = {
-  user: User;
-};
+/*type HeaderProps = {
+  user: User
+};*/
+//user = useSelector() ?
 
-export const Header = (props: HeaderProps) => {
-  const { user } = props;
+export const Header = () => {
+  //const { user } = props;
+  const user = useSelector((state: AppState) => state.user.user);
+  console.log("user from HEADER", user);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,9 +38,14 @@ export const Header = (props: HeaderProps) => {
     }
   };
 
+  const handleLogout = () => {
+    //dispatch(logout(history))
+    //localStorage.removeItem('token') teisingai
+  };
+
   return (
     <header>
-      {!user ? (
+      {!user.name ? (
         <nav>
           <h1>Welcome to My Records!</h1>
           <div className="btn-group">
@@ -63,7 +73,9 @@ export const Header = (props: HeaderProps) => {
         <nav>
           <h1>Welcome {user.name}!</h1>
           <div className="btn-group">
-            <button className="btn">Sign Out</button>
+            <button className="btn" onClick={handleLogout}>
+              Sign Out
+            </button>
             <button className="btn">Selection</button>
           </div>
         </nav>
