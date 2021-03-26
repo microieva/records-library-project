@@ -1,5 +1,7 @@
 export const GET_RECORDS = "GET_RECORDS";
 export const GET_USER = "GET_USER";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGOUT = "LOGOUT";
 
 export type AppState = {
   records: RecordsState;
@@ -39,7 +41,31 @@ export type User = {
   isAdmin: boolean;
 };
 
-export type UserActions = GetUserAction;
+export type UserActions = GetUserAction | LoginSuccessAction | LogoutAction;
+
+export type LogoutAction = {
+  type: typeof LOGOUT;
+  //payload here is history object?
+  payload: any;
+};
+
+export type LoginSuccessAction = {
+  type: typeof LOGIN_SUCCESS;
+  payload: { loginResponse: LoginResponse; history: any };
+};
+
+export type LoginResponse = {
+  user: {
+    name: string;
+    email: string;
+    borrowedRecords: string[];
+    isAdmin: boolean;
+    //photo: string
+    _id: string;
+  };
+  token: string;
+};
+
 export type GetUserAction = {
   type: typeof GET_USER;
   payload: {

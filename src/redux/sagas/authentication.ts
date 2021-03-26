@@ -1,6 +1,11 @@
 /* eslint-disable require-yield */
 import { takeLatest } from "redux-saga/effects";
-import { LoginSuccessAction, Logout } from "../actions";
+import {
+  LoginSuccessAction,
+  LogoutAction,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from "../../types";
 
 function* googleLogin(action: LoginSuccessAction) {
   const token = action.payload.loginResponse.token;
@@ -12,16 +17,16 @@ function* googleLogin(action: LoginSuccessAction) {
   } catch (error) {}
 }
 
-function* logout(action: Logout) {
+function* logout(action: LogoutAction) {
   const history = action.payload;
   try {
-    history.push("/login");
+    history.push("/");
   } catch (error) {}
 }
 
 const watcher = [
-  takeLatest("LOGIN_SUCCESS", googleLogin),
-  takeLatest("LOGOUT", logout),
+  takeLatest(LOGIN_SUCCESS, googleLogin),
+  takeLatest(LOGOUT, logout),
 ];
 
 export default watcher;
