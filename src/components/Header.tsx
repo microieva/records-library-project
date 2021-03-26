@@ -5,6 +5,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Badge from "@material-ui/core/Badge";
 
 import { AppState } from "../types";
 import { loginSuccess, logout } from "../redux/actions";
@@ -13,7 +14,8 @@ import "../scss/header.scss";
 
 export const Header = () => {
   const user = useSelector((state: AppState) => state.user.user);
-  console.log("user from HEADER", user);
+  const amountSelected = user.borrowedRecords.length;
+  //console.log("user from HEADER", user);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -22,7 +24,7 @@ export const Header = () => {
       id_token: response.tokenObj.id_token,
     });
 
-    console.log("res from HEADER", res);
+    //console.log("res from HEADER", res);
     if (res.status === 200) {
       dispatch(loginSuccess(res.data, history));
     } else {
@@ -69,7 +71,9 @@ export const Header = () => {
             <button className="btn" onClick={handleLogout}>
               Sign Out
             </button>
-            <button className="btn">Selection</button>
+            <Badge badgeContent={amountSelected} color="secondary">
+              <button className="btn">Selection</button>
+            </Badge>
           </div>
         </nav>
       )}

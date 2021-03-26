@@ -2,11 +2,20 @@ export const GET_RECORDS = "GET_RECORDS";
 export const GET_USER = "GET_USER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
+export const ADD_RECORD = "ADD_RECORD";
+export const UPDATE_BORROWED_RECORDS = "UPDATE_BORROWED_RECORDS";
 
 export type AppState = {
   records: RecordsState;
   user: UserState;
+  cart: CartState;
 };
+
+export type CartState = {
+  selectedRecords: string[];
+};
+
+export type CartActions = AddRecordAction;
 
 export type RecordsState = {
   records: Record[];
@@ -19,6 +28,7 @@ export type Track = {
 };
 
 export type Record = {
+  _id: string;
   image: string;
   title: string;
   authors: string[];
@@ -41,7 +51,21 @@ export type User = {
   isAdmin: boolean;
 };
 
-export type UserActions = GetUserAction | LoginSuccessAction | LogoutAction;
+export type UserActions =
+  | GetUserAction
+  | LoginSuccessAction
+  | LogoutAction
+  | UpdateBorrowedRecordsAction;
+
+export type UpdateBorrowedRecordsAction = {
+  type: typeof UPDATE_BORROWED_RECORDS;
+  payload: string[];
+};
+
+export type AddRecordAction = {
+  type: typeof ADD_RECORD;
+  payload: string;
+};
 
 export type LogoutAction = {
   type: typeof LOGOUT;

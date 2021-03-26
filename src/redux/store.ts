@@ -18,6 +18,9 @@ const initState: AppState = {
       isAdmin: false,
     },
   },
+  cart: {
+    selectedRecords: [],
+  },
 };
 
 export default function makeStore(initialState = initState) {

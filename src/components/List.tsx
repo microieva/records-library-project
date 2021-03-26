@@ -10,7 +10,7 @@ export const List = () => {
   const records = useSelector((state: AppState) => state.records.records);
 
   return (
-    <div className="list-container">
+    <div className="list-wrapper">
       <div className="list-container">
         {records
           ? records.map((record, i) => {

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { Record } from "../types";
+import { AppState, Record } from "../types";
+import { addRecord, updateBorrowedRecords } from "../redux/actions";
 
 type RecordCardProps = {
   record: Record;
@@ -9,6 +12,20 @@ type RecordCardProps = {
 
 export const RecordCard = (props: RecordCardProps) => {
   const { record } = props;
+  const dispatch = useDispatch();
+  const loggedInUser = useSelector((state: AppState) => state.user.user);
+  const selectedRecords = useSelector(
+    (state: AppState) => state.cart.selectedRecords
+  );
+
+  const handleBorrowClick = () => {
+    dispatch(addRecord(record));
+    if (loggedInUser) {
+      dispatch(updateBorrowedRecords(selectedRecords));
+      console.log("borrowedRecords: ", loggedInUser.borrowedRecords);
+    }
+    console.log("state.cart.selectedRecords: ", selectedRecords);
+  };
 
   return (
     <div className="card-container">
@@ -25,7 +42,9 @@ export const RecordCard = (props: RecordCardProps) => {
             Listen
           </Link>
         </button>
-        <button className="btn">Borrow</button>
+        <button className="btn" onClick={handleBorrowClick}>
+          Borrow
+        </button>
       </div>
     </div>
   );
