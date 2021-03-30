@@ -11,16 +11,14 @@ const initState: AppState = {
     records: [],
   },
   user: {
-    user: {
-      name: "",
-      email: "",
-      borrowedRecords: [],
-      isAdmin: false,
-    },
+    name: "",
+    email: "",
+    borrowedRecords: [],
+    isAdmin: false,
   },
-  cart: {
-    selectedRecords: [],
-  },
+  // cart: {
+  //   selectedRecords: [],
+  // },
 };
 
 export default function makeStore(initialState = initState) {

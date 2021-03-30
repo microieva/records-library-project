@@ -1,5 +1,4 @@
 import React from "react";
-//import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import axios from "axios";
 import { useDispatch } from "react-redux";
@@ -12,10 +11,12 @@ import { loginSuccess, logout } from "../redux/actions";
 
 import "../scss/header.scss";
 
+//to do: BADGE css
+
 export const Header = () => {
-  const user = useSelector((state: AppState) => state.user.user);
+  const user = useSelector((state: AppState) => state.user);
   const amountSelected = user.borrowedRecords.length;
-  //console.log("user from HEADER", user);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -24,7 +25,6 @@ export const Header = () => {
       id_token: response.tokenObj.id_token,
     });
 
-    //console.log("res from HEADER", res);
     if (res.status === 200) {
       dispatch(loginSuccess(res.data, history));
     } else {

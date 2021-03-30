@@ -1,41 +1,51 @@
 import {
   UserState,
   UserActions,
-  GET_USER,
-  UPDATE_BORROWED_RECORDS,
+  ADD_RECORD,
   LOGIN_SUCCESS,
   LOGOUT,
 } from "../../types";
 
 export default function user(
   state: UserState = {
-    user: {
-      name: "",
-      email: "",
-      borrowedRecords: [],
-      isAdmin: false,
-    },
+    name: "",
+    email: "",
+    borrowedRecords: [],
+    isAdmin: false,
   },
   action: UserActions
 ): UserState {
   switch (action.type) {
-  case GET_USER: {
-    return {
-      ...state,
-      user: action.payload.user,
-    };
-  }
+  // case GET_USER: {
+  //   return {
+  //     //...state,
+  //     action.payload.user,
+  //   };
+  // }
   case LOGIN_SUCCESS:
     const userData = action.payload.loginResponse.user;
     console.log("DATA", userData);
-    return { user: userData };
+    return {
+      ...userData,
+      borrowedRecords: state.borrowedRecords.concat(
+        userData.borrowedRecords.filter(
+          (item) => state.borrowedRecords.indexOf(item) < 0
+        )
+      ),
+    };
   case LOGOUT:
-    return { ...state };
-  case UPDATE_BORROWED_RECORDS: {
     return {
       ...state,
-      //state.user.borrowedRecords: [...state.user.borrowedRecords, ...action.payload]
-      //return combined arrays user.borrowedRecords + action.payload
+    };
+  case ADD_RECORD: {
+    const { borrowedRecords } = state;
+    const recordId = action.payload;
+    if (borrowedRecords.find((recId) => recId === recordId)) {
+      return { ...state };
+    }
+    return {
+      ...state,
+      borrowedRecords: [...borrowedRecords, recordId],
     };
   }
 

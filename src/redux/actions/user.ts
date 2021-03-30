@@ -3,9 +3,12 @@ import {
   GET_USER,
   User,
   UserActions,
-  UPDATE_BORROWED_RECORDS,
+  //UPDATE_BORROWED_RECORDS,
+  ADD_RECORD,
+  LoginResponse,
+  LOGIN_SUCCESS,
+  LOGOUT,
 } from "../../types";
-import { LoginResponse, LOGIN_SUCCESS, LOGOUT } from "../../types";
 
 export const loginSuccess = (loginResponse: LoginResponse, history: any) => {
   return {
@@ -30,10 +33,17 @@ export function getUser(user: User): UserActions {
   };
 }
 
-export function updateBorrowedRecords(selectedRecords: string[]): UserActions {
+/*export function updateBorrowedRecords(recordId: string): UserActions {
   return {
     type: UPDATE_BORROWED_RECORDS,
-    payload: selectedRecords,
+    payload: recordId,
+  };
+}*/
+
+export function addRecord(recordId: string): UserActions {
+  return {
+    type: ADD_RECORD,
+    payload: recordId,
   };
 }
 

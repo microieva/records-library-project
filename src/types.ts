@@ -8,14 +8,15 @@ export const UPDATE_BORROWED_RECORDS = "UPDATE_BORROWED_RECORDS";
 export type AppState = {
   records: RecordsState;
   user: UserState;
-  cart: CartState;
+  //cart: CartState;
 };
 
-export type CartState = {
+export type CartState = Cart;
+export type Cart = {
   selectedRecords: string[];
 };
 
-export type CartActions = AddRecordAction;
+//export type CartActions = AddRecordAction;
 
 export type RecordsState = {
   records: Record[];
@@ -40,14 +41,14 @@ export type Record = {
   favorite: boolean;
 };
 
-export type UserState = {
-  user: User;
-};
+export type UserState = User;
 
 export type User = {
+  _id?: string;
   name: string;
   email: string;
   borrowedRecords: string[];
+  //borrowedRecords: Cart;
   isAdmin: boolean;
 };
 
@@ -55,11 +56,12 @@ export type UserActions =
   | GetUserAction
   | LoginSuccessAction
   | LogoutAction
-  | UpdateBorrowedRecordsAction;
+  | AddRecordAction;
+//| UpdateBorrowedRecordsAction;
 
 export type UpdateBorrowedRecordsAction = {
   type: typeof UPDATE_BORROWED_RECORDS;
-  payload: string[];
+  payload: string;
 };
 
 export type AddRecordAction = {

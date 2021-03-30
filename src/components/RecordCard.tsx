@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
 import { AppState, Record } from "../types";
-import { addRecord, updateBorrowedRecords } from "../redux/actions";
+import { addRecord } from "../redux/actions";
 
 type RecordCardProps = {
   record: Record;
@@ -13,18 +13,14 @@ type RecordCardProps = {
 export const RecordCard = (props: RecordCardProps) => {
   const { record } = props;
   const dispatch = useDispatch();
-  const loggedInUser = useSelector((state: AppState) => state.user.user);
-  const selectedRecords = useSelector(
-    (state: AppState) => state.cart.selectedRecords
-  );
+  const user = useSelector((state: AppState) => state.user);
+  // const selectedRecords = useSelector(
+  //   (state: AppState) => state.cart.selectedRecords
+  // );
+  console.log(user);
 
-  const handleBorrowClick = () => {
-    dispatch(addRecord(record));
-    if (loggedInUser) {
-      dispatch(updateBorrowedRecords(selectedRecords));
-      console.log("borrowedRecords: ", loggedInUser.borrowedRecords);
-    }
-    console.log("state.cart.selectedRecords: ", selectedRecords);
+  const handleBorrowClick = (id: string) => {
+    dispatch(addRecord(id));
   };
 
   return (
@@ -42,7 +38,7 @@ export const RecordCard = (props: RecordCardProps) => {
             Listen
           </Link>
         </button>
-        <button className="btn" onClick={handleBorrowClick}>
+        <button className="btn" onClick={() => handleBorrowClick(record._id)}>
           Borrow
         </button>
       </div>
