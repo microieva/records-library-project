@@ -5,13 +5,16 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Badge from "@material-ui/core/Badge";
+import { useStyles } from "../hooks/useStyles";
 
 import { AppState } from "../types";
-import { loginSuccess, logout } from "../redux/actions";
+import {
+  loginSuccess,
+  logout,
+  //showSelection
+} from "../redux/actions";
 
 import "../scss/header.scss";
-
-//to do: BADGE css
 
 export const Header = () => {
   const user = useSelector((state: AppState) => state.user);
@@ -19,6 +22,7 @@ export const Header = () => {
 
   const dispatch = useDispatch();
   const history = useHistory();
+  const classes = useStyles();
 
   const responseGoogle = async (response: any) => {
     const res = await axios.post("/users/google/login", {
@@ -38,12 +42,16 @@ export const Header = () => {
     localStorage.removeItem("token");
   };
 
+  const handleSelectionClick = () => {
+    //dispatch(showSelection(user.borrowedRecords))
+  };
+
   return (
     <header>
       {!user.name ? (
         <nav>
           <h1>Welcome to My Records!</h1>
-          <div className="btn-group">
+          <div className="btn-group header-btn-group">
             <GoogleLogin
               clientId="391700730466-tdi0a11fnhht3tl7budat5utlephuad9.apps.googleusercontent.com"
               buttonText="Sign In"
@@ -61,18 +69,30 @@ export const Header = () => {
               cookiePolicy={"single_host_origin"}
             />
 
-            <button className="btn">Selection</button>
+            <Badge
+              badgeContent={amountSelected}
+              classes={{ badge: classes.customBadge }}
+            >
+              <button className="btn" onClick={handleSelectionClick}>
+                Selection
+              </button>
+            </Badge>
           </div>
         </nav>
       ) : (
         <nav>
           <h1>Welcome {user.name}!</h1>
-          <div className="btn-group">
+          <div className="btn-group header-btn-group">
             <button className="btn" onClick={handleLogout}>
               Sign Out
             </button>
-            <Badge badgeContent={amountSelected} color="secondary">
-              <button className="btn">Selection</button>
+            <Badge
+              badgeContent={amountSelected}
+              classes={{ badge: classes.customBadge }}
+            >
+              <button className="btn" onClick={handleSelectionClick}>
+                Selection
+              </button>
             </Badge>
           </div>
         </nav>

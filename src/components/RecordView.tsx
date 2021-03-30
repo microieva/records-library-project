@@ -4,7 +4,9 @@ import { useHistory } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AudioPlayer from "material-ui-audio-player";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
+import { addRecord } from "../redux/actions";
 import { useRecords } from "../hooks/useRecords";
 import { AppState } from "../types";
 
@@ -20,11 +22,16 @@ export const RecordView = () => {
   const records = useSelector((state: AppState) => state.records.records);
   const { title } = useParams<RouteParams>();
 
-  let record = records.find((r) => r.title === title);
+  const record = records.find((r) => r.title === title);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleClickBack = () => {
     history.push("/");
+  };
+
+  const handleBorrowClick = (id: string) => {
+    dispatch(addRecord(id));
   };
 
   const muiTheme = createMuiTheme({
@@ -39,7 +46,12 @@ export const RecordView = () => {
             <button className="btn" onClick={handleClickBack}>
               Go Back
             </button>
-            <button className="btn">Borrow</button>
+            <button
+              className="btn"
+              onClick={() => handleBorrowClick(record._id)}
+            >
+              Borrow
+            </button>
           </div>
 
           <div className="flex--row">

@@ -7,7 +7,6 @@
     border-radius: var.$small-radius;
     color: var.$orange;
     border: var.$border-orange;
-    margin: 1rem 2rem;
 }
 
 @mixin btn-orange--hover {
@@ -23,7 +22,6 @@
     border-radius: var.$small-radius;
     color: var.$green;
     border: var.$border-green;
-    margin: 1rem 2rem;
 }
 
 @mixin btn-green--hover {
@@ -39,7 +37,6 @@
     border-radius: var.$small-radius;
     color: var.$blue;
     border: var.$border-blue;
-    margin: 1rem 2rem;
 }
 
 @mixin btn-blue--hover {

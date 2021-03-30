@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-import { AppState, Record } from "../types";
+import { Record } from "../types";
 import { addRecord } from "../redux/actions";
 
 type RecordCardProps = {
@@ -13,11 +13,8 @@ type RecordCardProps = {
 export const RecordCard = (props: RecordCardProps) => {
   const { record } = props;
   const dispatch = useDispatch();
-  const user = useSelector((state: AppState) => state.user);
-  // const selectedRecords = useSelector(
-  //   (state: AppState) => state.cart.selectedRecords
-  // );
-  console.log(user);
+  //const user = useSelector((state: AppState) => state.user);
+  //const available = record.available;
 
   const handleBorrowClick = (id: string) => {
     dispatch(addRecord(id));

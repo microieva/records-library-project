@@ -3,20 +3,12 @@ export const GET_USER = "GET_USER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
 export const ADD_RECORD = "ADD_RECORD";
-export const UPDATE_BORROWED_RECORDS = "UPDATE_BORROWED_RECORDS";
+export const SHOW_SELECTION = "SHOW_SELECTION";
 
 export type AppState = {
   records: RecordsState;
   user: UserState;
-  //cart: CartState;
 };
-
-export type CartState = Cart;
-export type Cart = {
-  selectedRecords: string[];
-};
-
-//export type CartActions = AddRecordAction;
 
 export type RecordsState = {
   records: Record[];
@@ -48,7 +40,6 @@ export type User = {
   name: string;
   email: string;
   borrowedRecords: string[];
-  //borrowedRecords: Cart;
   isAdmin: boolean;
 };
 
@@ -57,12 +48,6 @@ export type UserActions =
   | LoginSuccessAction
   | LogoutAction
   | AddRecordAction;
-//| UpdateBorrowedRecordsAction;
-
-export type UpdateBorrowedRecordsAction = {
-  type: typeof UPDATE_BORROWED_RECORDS;
-  payload: string;
-};
 
 export type AddRecordAction = {
   type: typeof ADD_RECORD;

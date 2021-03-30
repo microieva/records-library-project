@@ -1,6 +1,6 @@
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 
-export const useStyles = makeStyles((theme: any) => {
+export const useStyles = makeStyles((theme: Theme) => {
   return {
     root: {
       [theme.breakpoints.down("sm")]: {
@@ -13,6 +13,11 @@ export const useStyles = makeStyles((theme: any) => {
       height: "3rem",
       margin: "0.2rem 0",
       maxWidth: "60%",
+    },
+    customBadge: {
+      backgroundColor: "rgb(94, 122, 85)",
+      color: "rgb(11, 14, 19)",
+      border: "1px solid rgb(11, 14, 19)",
     },
     playIcon: {
       color: "rgb(94, 122, 85)",
