@@ -1,9 +1,8 @@
-//import { Dispatch } from "redux";
 import {
   GET_USER,
   User,
   UserActions,
-  //UPDATE_BORROWED_RECORDS,
+  REMOVE_RECORD,
   ADD_RECORD,
   LoginResponse,
   LOGIN_SUCCESS,
@@ -33,13 +32,6 @@ export function getUser(user: User): UserActions {
   };
 }
 
-/*export function updateBorrowedRecords(recordId: string): UserActions {
-  return {
-    type: UPDATE_BORROWED_RECORDS,
-    payload: recordId,
-  };
-}*/
-
 export function addRecord(recordId: string): UserActions {
   return {
     type: ADD_RECORD,
@@ -47,17 +39,9 @@ export function addRecord(recordId: string): UserActions {
   };
 }
 
-/*export function fetchUser() {
-  //const user = localStorage.getItem('token')
-  //dispatch(getUser(user));
-  return async (dispatch: Dispatch) => {
-    try {
-      //const response = await fetch("http://localhost:3001/api/v1/users");
-      const response = await fetch("")
-      const data = await response.json();
-      dispatch(getUser(data));
-    } catch (e) {
-      console.log("ERROR______", e);
-    }
+export function removeRecord(recordId: string): UserActions {
+  return {
+    type: REMOVE_RECORD,
+    payload: recordId,
   };
-}*/
+}

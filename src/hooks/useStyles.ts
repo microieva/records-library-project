@@ -14,11 +14,6 @@ export const useStyles = makeStyles((theme: Theme) => {
       margin: "0.2rem 0",
       maxWidth: "60%",
     },
-    customBadge: {
-      backgroundColor: "rgb(94, 122, 85)",
-      color: "rgb(11, 14, 19)",
-      border: "1px solid rgb(11, 14, 19)",
-    },
     playIcon: {
       color: "rgb(94, 122, 85)",
       fontSize: "1rem",
@@ -48,6 +43,11 @@ export const useStyles = makeStyles((theme: Theme) => {
         fontSize: "1rem",
         color: "rgb(94, 122, 85)",
       },
+    },
+    customBadge: {
+      backgroundColor: "rgb(94, 122, 85)",
+      color: "rgb(11, 14, 19)",
+      border: "1px solid rgb(11, 14, 19)",
     },
   };
 });

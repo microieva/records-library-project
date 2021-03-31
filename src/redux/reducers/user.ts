@@ -2,6 +2,7 @@ import {
   UserState,
   UserActions,
   ADD_RECORD,
+  REMOVE_RECORD,
   LOGIN_SUCCESS,
   LOGOUT,
 } from "../../types";
@@ -48,7 +49,14 @@ export default function user(
       borrowedRecords: [...borrowedRecords, recordId],
     };
   }
-
+  case REMOVE_RECORD: {
+    const { borrowedRecords } = state;
+    const recordId = action.payload;
+    return {
+      ...state,
+      borrowedRecords: borrowedRecords.filter((id) => id !== recordId),
+    };
+  }
   default:
     return state;
   }

@@ -4,6 +4,7 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
 export const ADD_RECORD = "ADD_RECORD";
 export const SHOW_SELECTION = "SHOW_SELECTION";
+export const REMOVE_RECORD = "REMOVE_RECORD";
 
 export type AppState = {
   records: RecordsState;
@@ -21,10 +22,6 @@ export type UiActions = ShowSelectionAction;
 
 export type ShowSelectionAction = {
   type: typeof SHOW_SELECTION;
-  /*payload: {
-    selectionOpen: boolean;
-    selectedRecords: string[];
-  }*/
   payload: boolean;
 };
 
@@ -65,7 +62,13 @@ export type UserActions =
   | GetUserAction
   | LoginSuccessAction
   | LogoutAction
-  | AddRecordAction;
+  | AddRecordAction
+  | RemoveRecordAction;
+
+export type RemoveRecordAction = {
+  type: typeof REMOVE_RECORD;
+  payload: string;
+};
 
 export type AddRecordAction = {
   type: typeof ADD_RECORD;
