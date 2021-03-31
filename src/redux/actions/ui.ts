@@ -1,11 +1,8 @@
-export {};
-/*import { Record, UiActions, SHOW_SELECTION } from "../../types";
+import { UiActions, SHOW_SELECTION } from "../../types";
 
-export function showSelection(borrowedRecords: Record[]): UiActions {
+export function showSelection(selectedOpen: boolean): UiActions {
   return {
     type: SHOW_SELECTION,
-    payload: {
-      borrowedRecords,
-    },
+    payload: selectedOpen,
   };
-}*/
+}

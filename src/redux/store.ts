@@ -16,9 +16,9 @@ const initState: AppState = {
     borrowedRecords: [],
     isAdmin: false,
   },
-  // cart: {
-  //   selectedRecords: [],
-  // },
+  ui: {
+    selectionOpen: false,
+  },
 };
 
 export default function makeStore(initialState = initState) {

@@ -8,11 +8,7 @@ import Badge from "@material-ui/core/Badge";
 import { useStyles } from "../hooks/useStyles";
 
 import { AppState } from "../types";
-import {
-  loginSuccess,
-  logout,
-  //showSelection
-} from "../redux/actions";
+import { loginSuccess, logout, showSelection } from "../redux/actions";
 
 import "../scss/header.scss";
 
@@ -43,7 +39,7 @@ export const Header = () => {
   };
 
   const handleSelectionClick = () => {
-    //dispatch(showSelection(user.borrowedRecords))
+    dispatch(showSelection(true));
   };
 
   return (

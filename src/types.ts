@@ -8,6 +8,24 @@ export const SHOW_SELECTION = "SHOW_SELECTION";
 export type AppState = {
   records: RecordsState;
   user: UserState;
+  ui: UiState;
+};
+
+export type UiState = Ui;
+
+export type Ui = {
+  selectionOpen: boolean;
+};
+
+export type UiActions = ShowSelectionAction;
+
+export type ShowSelectionAction = {
+  type: typeof SHOW_SELECTION;
+  /*payload: {
+    selectionOpen: boolean;
+    selectedRecords: string[];
+  }*/
+  payload: boolean;
 };
 
 export type RecordsState = {
