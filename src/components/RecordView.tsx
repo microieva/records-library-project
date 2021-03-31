@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+//import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import AudioPlayer from "material-ui-audio-player";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -25,6 +25,7 @@ export const RecordView = () => {
   const record = records.find((r) => r.title === title);
   const history = useHistory();
   const dispatch = useDispatch();
+  //const classes = useStyles();
 
   const handleClickBack = () => {
     history.push("/");
@@ -34,9 +35,9 @@ export const RecordView = () => {
     dispatch(addRecord(id));
   };
 
-  const muiTheme = createMuiTheme({
-    palette: {},
-  });
+  // const muiTheme = createMuiTheme({
+  //   palette: {},
+  // });
 
   return (
     <div className="record-view-container">
@@ -74,27 +75,26 @@ export const RecordView = () => {
             {record.tracks.map((track, i) => (
               <div key={i} className="track-div">
                 <p>{track.name}</p>
-                <ThemeProvider theme={muiTheme}>
-                  <AudioPlayer
-                    elevation={1}
-                    variation="default"
-                    spacing={3}
-                    download={false}
-                    autoplay={false}
-                    order="standart"
-                    //preload="auto"
-                    loop={false}
-                    src={track.sampleUrl}
-                    useStyles={useStyles}
-                  />
-                </ThemeProvider>
+                {/* <ThemeProvider theme={muiTheme}> */}
+                <AudioPlayer
+                  //classes={{root: classes.root}}
+                  elevation={1}
+                  variation="default"
+                  spacing={3}
+                  download={false}
+                  autoplay={false}
+                  order="standart"
+                  //preload="auto"
+                  loop={false}
+                  src={track.sampleUrl}
+                  useStyles={useStyles}
+                />
+                {/* </ThemeProvider> */}
               </div>
             ))}
           </div>
         </div>
-      ) : (
-        false
-      )}
+      ) : null}
     </div>
   );
 };

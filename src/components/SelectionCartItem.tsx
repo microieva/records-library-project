@@ -28,8 +28,8 @@ export const SelectionCartItem = (props: SelectionItemProps) => {
       <div className="img-and-titles">
         <img className="item-img" src={record.image} alt="record" />
         <div className="item-titles">
-          <h4>{record.title}</h4>
-          <p>{record.authors.join(", ")}</p>
+          <h4 className="h4">{record.title}</h4>
+          <p className="p">{record.authors.join(", ")}</p>
         </div>
       </div>
       <div className="icon-div" onClick={() => handleRemoveClick(record._id)}>

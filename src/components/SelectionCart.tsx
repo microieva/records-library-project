@@ -37,11 +37,11 @@ export const SelectionCart = () => {
               No Selection
             </h3>
           ) : selectedRecords.length === 1 ? (
-            <h3 style={{ color: "darkgrey" }}>
+            <h3 style={{ color: "darkgrey", margin: "1rem" }}>
               {selectedRecords.length} Item Selected
             </h3>
           ) : (
-            <h3 style={{ color: "darkgrey" }}>
+            <h3 style={{ color: "darkgrey", margin: "1rem" }}>
               {selectedRecords.length} Items Selected
             </h3>
           )}
