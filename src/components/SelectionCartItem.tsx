@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import React from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 //import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
@@ -28,13 +28,21 @@ export const SelectionCartItem = (props: SelectionItemProps) => {
       <div className="img-and-titles">
         <img className="item-img" src={record.image} alt="record" />
         <div className="item-titles">
-          <h4 className="h4">{record.title}</h4>
-          <p className="p">{record.authors.join(", ")}</p>
+          <Link
+            to={`/records/${record.title}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <h4 className="h4">{record.title}</h4>
+            <p className="p">{record.authors.join(", ")}</p>
+          </Link>
         </div>
       </div>
-      <div className="icon-div" onClick={() => handleRemoveClick(record._id)}>
-        <i className="fas fa-trash-alt"></i>
-      </div>
+      <button
+        className="btn btn-del"
+        onClick={() => handleRemoveClick(record._id)}
+      >
+        x
+      </button>
     </div>
   );
 };

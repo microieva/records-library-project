@@ -62,13 +62,13 @@ export const RecordView = () => {
             <div>
               <h1>{record.title}</h1>
               <p>artist(s):</p>
-              <h3>{record.authors.map((artist) => artist).join(", ")}</h3>
+              <h3>{record.authors.join(", ")}</h3>
               <p>label:</p>
               <h3>
                 {record.label}, {record.publishedYear}
               </h3>
               <p>genres:</p>
-              <h3>{record.genres.map((genre) => genre).join(", ")}</h3>
+              <h3>{record.genres.join(", ")}</h3>
             </div>
           </div>
           <div className="tracks-div">

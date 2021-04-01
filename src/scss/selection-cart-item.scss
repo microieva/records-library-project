@@ -20,10 +20,14 @@
 }
 
 .item-titles {
-    
+    cursor: pointer;
     font-size: 0.9rem;
     padding: 2rem 0;
     text-align: start;
+}
+
+.item-titles:hover {
+    color: darkgray;
 }
 
 .h4 {
@@ -40,11 +44,10 @@
     color: var.$dark;
     font-size: 1rem;
 }
-.icon-div {
+
+.btn-del {
     align-self: center;
     margin: 0 2rem;
     height: 2rem;
     width: 2rem;
-    border:var.$border-green;
-    border-radius: var.$small-radius;
 }

@@ -6,11 +6,11 @@ import { SelectionCart } from "../components/SelectionCart";
 
 const RecordPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <RecordView />
       <SelectionCart />
-    </div>
+    </>
   );
 };
 
