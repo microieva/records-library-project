@@ -9,7 +9,10 @@ export const RecordInput = () => {
   return open ? (
     <div className="overlay" style={{ display: "block" }}>
       <div className="rec-input-wrapper">
-        <div className="rec-input-container"></div>
+        <div className="rec-input-container">
+          record input
+          <input />
+        </div>
       </div>
     </div>
   ) : null;
