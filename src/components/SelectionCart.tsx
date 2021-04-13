@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { AppState } from "../types";
-//import { showSelection } from "../redux/actions";
+import { showSelection } from "../redux/actions";
 import { SelectionCartItem } from "./SelectionCartItem";
 
 export const SelectionCart = () => {
@@ -10,22 +12,22 @@ export const SelectionCart = () => {
   const selectedRecordIds = useSelector(
     (state: AppState) => state.user.borrowedRecords
   );
+  const open = useSelector((state: AppState) => state.ui.selectionOpen);
+  const dispatch = useDispatch();
+
   const selectedRecords = records.filter((record) => {
     return selectedRecordIds.find((id) => id === record._id);
   });
 
-  console.log("CART: ", selectedRecords);
-
-  const open = useSelector((state: AppState) => state.ui.selectionOpen);
-  //const dispatch = useDispatch()
-
-  /*const handleClose = (e: MouseEvent) => {
-    dispatch(showSelection(false))
-  }*/
+  const handleClose = () => {
+    if (open) {
+      dispatch(showSelection(false));
+    }
+  };
 
   return open ? (
     <div
-      //onClick ={e => handleClose(e)}
+      onClick={handleClose}
       //role="background"
       className="overlay"
       style={{ display: "block" }}

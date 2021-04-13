@@ -50,6 +50,14 @@ img {
     border: none;
 }
 
+.btn-del {
+    @include mixins.button-red
+}
+
+.btn-del:hover {
+    @include mixins.btn-red--hover;
+}
+
 /*.btn-disabled:disabled{
     @include mixins.btn-disabled;
 }*/

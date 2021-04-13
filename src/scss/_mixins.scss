@@ -15,6 +15,21 @@
     color: var.$background_dark;
 }
 
+@mixin button-red {
+    height: 2rem;
+    width: 6rem;
+    background: inherit;
+    border-radius: var.$small-radius;
+    color: var.$red;
+    border: var.$border-red;
+}
+
+@mixin btn-red--hover {
+    cursor: pointer;
+    background: var.$red;
+    color: var.$background_dark;
+}
+
 @mixin button-green {
     height: 2rem;
     width: 6rem;

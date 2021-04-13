@@ -38,7 +38,7 @@ export const SelectionCartItem = (props: SelectionItemProps) => {
         </div>
       </div>
       <button
-        className="btn btn-del"
+        className="btn btn-rmv"
         onClick={() => handleRemoveClick(record._id)}
       >
         x

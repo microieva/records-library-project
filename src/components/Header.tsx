@@ -10,6 +10,8 @@ import { useStyles } from "../hooks/useStyles";
 import { AppState } from "../types";
 import { loginSuccess, logout, showSelection } from "../redux/actions";
 
+import { SelectionCart } from "../components/SelectionCart";
+
 import "../scss/header.scss";
 
 export const Header = () => {
@@ -42,8 +44,14 @@ export const Header = () => {
     dispatch(showSelection(true));
   };
 
+  /*const handleAddNew = () => {
+    dispatch(addNew())
+  }*/
+
+  //add 3rd cond if user.isAdmin, Selection -> Add New Record
   return (
     <header>
+      <SelectionCart />
       {!user.name ? (
         <nav>
           <h1>Welcome to My Records!</h1>
