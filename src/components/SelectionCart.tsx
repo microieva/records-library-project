@@ -55,7 +55,7 @@ export const SelectionCart = () => {
                 </li>
               );
             })
-            : false}
+            : null}
         </div>
       </div>
     </div>

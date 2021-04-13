@@ -1,8 +1,14 @@
-import { UiState, UiActions, SHOW_SELECTION } from "../../types";
+import {
+  UiState,
+  UiActions,
+  SHOW_SELECTION,
+  SHOW_RECORD_INPUT,
+} from "../../types";
 
 export default function ui(
   state: UiState = {
     selectionOpen: false,
+    recInputOpen: false,
   },
   action: UiActions
 ): UiState {
@@ -11,6 +17,12 @@ export default function ui(
     return {
       ...state,
       selectionOpen: action.payload,
+    };
+  }
+  case SHOW_RECORD_INPUT: {
+    return {
+      ...state,
+      recInputOpen: action.payload,
     };
   }
   default:

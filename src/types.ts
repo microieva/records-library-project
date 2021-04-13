@@ -5,6 +5,7 @@ export const LOGOUT = "LOGOUT";
 export const ADD_RECORD = "ADD_RECORD";
 export const SHOW_SELECTION = "SHOW_SELECTION";
 export const REMOVE_RECORD = "REMOVE_RECORD";
+export const SHOW_RECORD_INPUT = "SHOW_RECORD_INPUT";
 
 export type AppState = {
   records: RecordsState;
@@ -16,9 +17,15 @@ export type UiState = Ui;
 
 export type Ui = {
   selectionOpen: boolean;
+  recInputOpen: boolean;
 };
 
-export type UiActions = ShowSelectionAction;
+export type UiActions = ShowSelectionAction | ShowRecordInputAction;
+
+export type ShowRecordInputAction = {
+  type: typeof SHOW_RECORD_INPUT;
+  payload: boolean;
+};
 
 export type ShowSelectionAction = {
   type: typeof SHOW_SELECTION;

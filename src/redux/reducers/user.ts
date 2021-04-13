@@ -25,6 +25,13 @@ export default function user(
   // }
   case LOGIN_SUCCESS:
     const userData = action.payload.loginResponse.user;
+    const adminEmail = "ieva.vyliaudaite@integrify.io";
+    const admin = true;
+
+    if (userData.email === adminEmail) {
+      userData.isAdmin = admin;
+    }
+
     console.log("DATA", userData);
     return {
       ...userData,
@@ -33,6 +40,7 @@ export default function user(
           (item) => state.borrowedRecords.indexOf(item) < 0
         )
       ),
+      isAdmin: admin,
     };
   case LOGOUT:
     return {
