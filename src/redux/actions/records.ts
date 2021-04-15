@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
-import { GET_RECORDS, GetRecordsAction, Record } from "../../types";
+import { GET_RECORDS, RecordActions, Record, ADD_RECORD } from "../../types";
 
-export function getRecords(records: Record[]): GetRecordsAction {
+export function getRecords(records: Record[]): RecordActions {
   return {
     type: GET_RECORDS,
     payload: {
@@ -19,5 +19,12 @@ export function fetchRecords() {
     } catch (e) {
       console.log("ERROR______", e);
     }
+  };
+}
+
+export function addRecord(record: Record): RecordActions {
+  return {
+    type: ADD_RECORD,
+    payload: record,
   };
 }

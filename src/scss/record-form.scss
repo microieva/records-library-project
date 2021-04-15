@@ -2,7 +2,7 @@
 @use '_mixins';
 
   
-.rec-input-wrapper {
+.form-wrapper {
     position: absolute;
     top: 15%;
     left: 15%;
@@ -14,10 +14,10 @@
     border-radius: var.$big-radius;
 }
 
-.rec-input-container {
+.form-container {
     display: flex;
     flex-direction: column;
-
+    justify-content: space-around;
     height: 100%;
     border: var.$border-green;
     border-radius: var.$big-radius;

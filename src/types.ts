@@ -65,20 +65,10 @@ export type User = {
   isAdmin: boolean;
 };
 
-export type UserActions =
-  | GetUserAction
-  | LoginSuccessAction
-  | LogoutAction
-  | AddRecordAction
-  | RemoveRecordAction;
+export type UserActions = GetUserAction | LoginSuccessAction | LogoutAction;
 
 export type RemoveRecordAction = {
   type: typeof REMOVE_RECORD;
-  payload: string;
-};
-
-export type AddRecordAction = {
-  type: typeof ADD_RECORD;
   payload: string;
 };
 
@@ -112,7 +102,13 @@ export type GetUserAction = {
   };
 };
 
-export type RecordActions = GetRecordsAction;
+export type RecordActions = GetRecordsAction | AddRecordAction;
+
+export type AddRecordAction = {
+  type: typeof ADD_RECORD;
+  payload: Record;
+};
+
 export type GetRecordsAction = {
   type: typeof GET_RECORDS;
   payload: {
