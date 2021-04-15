@@ -1,7 +1,7 @@
 import {
   UserState,
   UserActions,
-  ADD_RECORD,
+  BORROW_RECORD,
   REMOVE_RECORD,
   LOGIN_SUCCESS,
   LOGOUT,
@@ -46,7 +46,7 @@ export default function user(
     return {
       ...state,
     };
-  case ADD_RECORD: {
+  case BORROW_RECORD: {
     const { borrowedRecords } = state;
     const recordId = action.payload;
     if (borrowedRecords.find((recId) => recId === recordId)) {

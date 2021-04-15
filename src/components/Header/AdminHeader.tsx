@@ -2,9 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { logout, showRecordInput } from "../redux/actions";
+import { logout, showRecordInput } from "../../redux/actions";
 
-import { AppState } from "../types";
+import { AppState } from "../../types";
 
 export const AdminHeader = () => {
   const history = useHistory();

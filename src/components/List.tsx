@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import { useRecords } from "../hooks/useRecords";
 import { AppState } from "../types";
-import { RecordCard } from "../components/RecordCard";
+import { RecordCard } from "./RecordCard";
 
 export const List = () => {
   useRecords();

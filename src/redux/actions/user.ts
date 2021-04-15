@@ -3,7 +3,7 @@ import {
   User,
   UserActions,
   REMOVE_RECORD,
-  ADD_RECORD,
+  BORROW_RECORD,
   LoginResponse,
   LOGIN_SUCCESS,
   LOGOUT,
@@ -32,9 +32,9 @@ export function getUser(user: User): UserActions {
   };
 }
 
-export function addRecord(recordId: string): UserActions {
+export function borrowRecord(recordId: string): UserActions {
   return {
-    type: ADD_RECORD,
+    type: BORROW_RECORD,
     payload: recordId,
   };
 }

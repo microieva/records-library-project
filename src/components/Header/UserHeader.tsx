@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 
 import Badge from "@material-ui/core/Badge";
 
-import { logout, showSelection } from "../redux/actions";
-import { AppState } from "../types";
-import { useStyles } from "../hooks/useStyles";
+import { logout, showSelection } from "../../redux/actions";
+import { AppState } from "../../types";
+import { useStyles } from "../../hooks/useStyles";
 
 export const UserHeader = () => {
   const history = useHistory();

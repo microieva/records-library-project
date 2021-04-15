@@ -6,7 +6,7 @@ import AudioPlayer from "material-ui-audio-player";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-import { addRecord } from "../redux/actions";
+import { borrowRecord } from "../redux/actions";
 import { useRecords } from "../hooks/useRecords";
 import { AppState } from "../types";
 
@@ -32,7 +32,7 @@ export const RecordView = () => {
   };
 
   const handleBorrowClick = (id: string) => {
-    dispatch(addRecord(id));
+    dispatch(borrowRecord(id));
   };
 
   // const muiTheme = createMuiTheme({

@@ -1,15 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { AppState } from "../types";
+import { AppState } from "../../types";
 
-import { SelectionCart } from "../components/SelectionCart";
-import { RecordForm } from "./RecordForm";
-import { PlainHeader } from "../components/PlainHeader";
-import { UserHeader } from "../components/UserHeader";
-import { AdminHeader } from "../components/AdminHeader";
+import { SelectionCart } from "../SelectionCart";
+import RecordForm from "../RecordForm";
+import { PlainHeader } from "./PlainHeader";
+import { UserHeader } from "./UserHeader";
+import { AdminHeader } from "./AdminHeader";
 
-import "../scss/header.scss";
+import "../../scss/header.scss";
 
 export const Header = () => {
   const user = useSelector((state: AppState) => state.user);

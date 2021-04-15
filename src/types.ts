@@ -2,10 +2,11 @@ export const GET_RECORDS = "GET_RECORDS";
 export const GET_USER = "GET_USER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT = "LOGOUT";
-export const ADD_RECORD = "ADD_RECORD";
+export const BORROW_RECORD = "BORROW_RECORD";
 export const SHOW_SELECTION = "SHOW_SELECTION";
 export const REMOVE_RECORD = "REMOVE_RECORD";
 export const SHOW_RECORD_INPUT = "SHOW_RECORD_INPUT";
+export const ADD_RECORD = "ADD_RECORD";
 
 export type AppState = {
   records: RecordsState;
@@ -13,34 +14,13 @@ export type AppState = {
   ui: UiState;
 };
 
-export type UiState = Ui;
-
-export type Ui = {
-  selectionOpen: boolean;
-  recInputOpen: boolean;
-};
-
-export type UiActions = ShowSelectionAction | ShowRecordInputAction;
-
-export type ShowRecordInputAction = {
-  type: typeof SHOW_RECORD_INPUT;
-  payload: boolean;
-};
-
-export type ShowSelectionAction = {
-  type: typeof SHOW_SELECTION;
-  payload: boolean;
-};
-
 export type RecordsState = {
   records: Record[];
 };
 
-export type Track = {
-  name: string;
-  duration: number;
-  sampleUrl: string;
-};
+export type UserState = User;
+
+export type UiState = Ui;
 
 export type Record = {
   _id: string;
@@ -55,7 +35,11 @@ export type Record = {
   favorite: boolean;
 };
 
-export type UserState = User;
+export type Track = {
+  name: string;
+  duration: number;
+  sampleUrl: string;
+};
 
 export type User = {
   _id?: string;
@@ -65,17 +49,41 @@ export type User = {
   isAdmin: boolean;
 };
 
-export type UserActions = GetUserAction | LoginSuccessAction | LogoutAction;
-
-export type RemoveRecordAction = {
-  type: typeof REMOVE_RECORD;
-  payload: string;
+export type Ui = {
+  selectionOpen: boolean;
+  recInputOpen: boolean;
 };
 
-export type LogoutAction = {
-  type: typeof LOGOUT;
-  //payload here is history object?
-  payload: any;
+//----------------------------------------------------------------------ACTION TYPES
+
+//- - - - - - - - - -Record Actions
+export type RecordActions = GetRecordsAction | AddNewRecordAction;
+
+export type GetRecordsAction = {
+  type: typeof GET_RECORDS;
+  payload: {
+    records: Record[];
+  };
+};
+
+export type AddNewRecordAction = {
+  type: typeof ADD_RECORD;
+  payload: Record;
+};
+
+//- - - - - - - - - - - - User Actions
+export type UserActions =
+  | GetUserAction
+  | LoginSuccessAction
+  | LogoutAction
+  | BorrowRecordAction
+  | RemoveRecordAction;
+
+export type GetUserAction = {
+  type: typeof GET_USER;
+  payload: {
+    user: User;
+  };
 };
 
 export type LoginSuccessAction = {
@@ -95,114 +103,31 @@ export type LoginResponse = {
   token: string;
 };
 
-export type GetUserAction = {
-  type: typeof GET_USER;
-  payload: {
-    user: User;
-  };
+export type LogoutAction = {
+  type: typeof LOGOUT;
+  //payload here is history object?
+  payload: any;
 };
 
-export type RecordActions = GetRecordsAction | AddRecordAction;
-
-export type AddRecordAction = {
-  type: typeof ADD_RECORD;
-  payload: Record;
+export type BorrowRecordAction = {
+  type: typeof BORROW_RECORD;
+  payload: string;
 };
 
-export type GetRecordsAction = {
-  type: typeof GET_RECORDS;
-  payload: {
-    records: Record[];
-  };
+export type RemoveRecordAction = {
+  type: typeof REMOVE_RECORD;
+  payload: string;
 };
 
-/*export const ADD_COUNTRY = 'ADD_COUNTRY'
-export const REMOVE_COUNTRY = 'REMOVE_COUNTRY'
-export const TOGGLE_DRAWER = 'TOGGLE_DRAWER'
-//export const SHOW_CART = 'SHOW_CART'
-export const GET_COUNTRIES = 'GET_COUNTRIES'
+//- - - - - - - - - - - UI Actions
+export type UiActions = ShowSelectionAction | ShowRecordFormAction;
 
-export type Country = {
-  flag: string;
-  name: string;
-  capital: string;
-  population: number;
-  languages: Language[];
+export type ShowRecordFormAction = {
+  type: typeof SHOW_RECORD_INPUT;
+  payload: boolean;
 };
 
-export type Language = {
-  name: string;
+export type ShowSelectionAction = {
+  type: typeof SHOW_SELECTION;
+  payload: boolean;
 };
-
-export type Anchor = 'right' | 'left';
-
-export type AppState = {
-  countries: CountriesState,
-  cart: CartState
-  ui: UiState,
-}
-
-export type CountriesState = {
-  countries: Country[]
-}
-
-export type CartState = {
-  inCart: Country[]
-}
-
-export type UiState = {
-  // showCart: {
-  //   [key in DialogType]?: boolean
-  // }
-}
-export type CountryActions = GetCountriesAction
-export type GetCountriesAction = {
-  type: typeof GET_COUNTRIES
-  payload: {
-    countries: Country[]
-  }
-}
-//------------------------------------------------------------------------
-export type CartActions = AddCountryAction | RemoveCountryAction 
-
-export type AddCountryAction = {
-  type: typeof ADD_COUNTRY
-  payload: {
-    country: Country,
-  }
-}
-
-export type RemoveCountryAction = {
-  type: typeof REMOVE_COUNTRY
-  payload: {
-    country: Country,
-  }
-}
-
-//---------------------------------------------------------------------
-export type UiActions = ToggleDrawerAction
-export type ToggleDrawerAction = {
-  type: typeof TOGGLE_DRAWER
-  payload: {
-    //dialog: DialogType,
-    anchor: Anchor
-  }
-}
-
-
-
-
-
-export type InputProps = {
-  filterInput: string,
-  handleFilterChange: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined
-}
-*/
-
-// Enum
-//export enum DialogType {
-// Cart = 'cart',
-// Themes = 'themes'
-//   SignIn = 'signIn',
-//   SignUp = 'signUp',
-//}

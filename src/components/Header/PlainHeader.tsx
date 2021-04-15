@@ -6,9 +6,9 @@ import axios from "axios";
 
 import Badge from "@material-ui/core/Badge";
 
-import { loginSuccess, showSelection } from "../redux/actions";
-import { AppState } from "../types";
-import { useStyles } from "../hooks/useStyles";
+import { loginSuccess, showSelection } from "../../redux/actions";
+import { AppState } from "../../types";
+import { useStyles } from "../../hooks/useStyles";
 
 export const PlainHeader = () => {
   const dispatch = useDispatch();
