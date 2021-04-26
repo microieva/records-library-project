@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { logout, showRecordInput } from "../../redux/actions";
+import { logout, showRecordForm } from "../../redux/actions";
 
 import { AppState } from "../../types";
 
@@ -17,13 +17,13 @@ export const AdminHeader = () => {
   };
 
   const handleAddClick = () => {
-    dispatch(showRecordInput(true));
+    dispatch(showRecordForm(true));
   };
 
   return (
     <nav>
       <h1>Welcome {user.name}!</h1>
-      <div className="btn-group header-btn-group">
+      <div className="btn-group btn-group--width">
         <button className="btn" onClick={handleLogout}>
           Sign Out
         </button>

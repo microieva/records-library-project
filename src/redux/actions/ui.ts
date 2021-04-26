@@ -7,9 +7,9 @@ export function showSelection(selectedOpen: boolean): UiActions {
   };
 }
 
-export function showRecordInput(recInputOpen: boolean): UiActions {
+export function showRecordForm(recFormOpen: boolean): UiActions {
   return {
     type: SHOW_RECORD_INPUT,
-    payload: recInputOpen,
+    payload: recFormOpen,
   };
 }

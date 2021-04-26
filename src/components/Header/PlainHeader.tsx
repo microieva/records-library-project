@@ -37,7 +37,7 @@ export const PlainHeader = () => {
   return (
     <nav>
       <h1>Welcome to My Records!</h1>
-      <div className="btn-group header-btn-group">
+      <div className="btn-group btn-group--width">
         <GoogleLogin
           clientId="391700730466-tdi0a11fnhht3tl7budat5utlephuad9.apps.googleusercontent.com"
           buttonText="Sign In"

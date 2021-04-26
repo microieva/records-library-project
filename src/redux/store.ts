@@ -18,7 +18,7 @@ const initState: AppState = {
   },
   ui: {
     selectionOpen: false,
-    recInputOpen: false,
+    recFormOpen: false,
   },
 };
 

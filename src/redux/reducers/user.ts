@@ -39,6 +39,7 @@ export default function user(
         userData.borrowedRecords.filter(
           (item) => state.borrowedRecords.indexOf(item) < 0
         )
+        //wrap up return statements within condition if user is admin
       ),
       isAdmin: admin,
     };

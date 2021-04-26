@@ -8,7 +8,7 @@ import {
 export default function ui(
   state: UiState = {
     selectionOpen: false,
-    recInputOpen: false,
+    recFormOpen: false,
   },
   action: UiActions
 ): UiState {
@@ -22,7 +22,7 @@ export default function ui(
   case SHOW_RECORD_INPUT: {
     return {
       ...state,
-      recInputOpen: action.payload,
+      recFormOpen: action.payload,
     };
   }
   default:

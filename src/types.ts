@@ -51,7 +51,7 @@ export type User = {
 
 export type Ui = {
   selectionOpen: boolean;
-  recInputOpen: boolean;
+  recFormOpen: boolean;
 };
 
 //----------------------------------------------------------------------ACTION TYPES

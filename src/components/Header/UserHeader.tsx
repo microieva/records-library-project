@@ -27,7 +27,7 @@ export const UserHeader = () => {
   return (
     <nav>
       <h1>Welcome {user.name}!</h1>
-      <div className="btn-group header-btn-group">
+      <div className="btn-group btn-group--width">
         <button className="btn" onClick={handleLogout}>
           Sign Out
         </button>
