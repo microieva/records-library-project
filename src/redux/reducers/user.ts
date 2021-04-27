@@ -27,26 +27,22 @@ export default function user(
     const userData = action.payload.loginResponse.user;
     const adminEmail = "ieva.vyliaudaite@integrify.io";
     const admin = true;
-
-    if (userData.email === adminEmail) {
-      userData.isAdmin = admin;
-    }
-
     console.log("DATA", userData);
+    if (userData.email === adminEmail) {
+      return {
+        ...userData,
+        isAdmin: admin,
+      };
+    }
     return {
       ...userData,
       borrowedRecords: state.borrowedRecords.concat(
         userData.borrowedRecords.filter(
           (item) => state.borrowedRecords.indexOf(item) < 0
         )
-        //wrap up return statements within condition if user is admin
       ),
-      isAdmin: admin,
     };
-  case LOGOUT:
-    return {
-      ...state,
-    };
+
   case BORROW_RECORD: {
     const { borrowedRecords } = state;
     const recordId = action.payload;
@@ -66,6 +62,10 @@ export default function user(
       borrowedRecords: borrowedRecords.filter((id) => id !== recordId),
     };
   }
+  case LOGOUT:
+    return {
+      ...state,
+    };
   default:
     return state;
   }

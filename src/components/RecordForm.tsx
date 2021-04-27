@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { compose } from "redux";
 import {
+  //FormAction,
   Field,
   InjectedFormProps,
   reduxForm,
@@ -16,21 +17,24 @@ import { showRecordForm } from "../redux/actions";
 
 }*/
 interface CustomFieldProps {
-  type?: string;
+  type: string;
   placeholder?: string;
   className: string;
+  label: string;
 }
 
-const renderInput = ({
-  input,
+const renderField = ({
+  //input,
   type,
   placeholder,
   className,
+  label,
   meta: { touched, error },
 }: WrappedFieldProps & CustomFieldProps) => (
-  <div>
+  <div className="form-item">
+    <label>{label}</label>
     <input
-      {...input}
+      // {...input}
       placeholder={placeholder}
       type={type}
       className={className}
@@ -51,77 +55,82 @@ const RecordForm = ({
   const handleXClick = () => {
     dispatch(showRecordForm(false));
   };
-
+  //const record = {}
   return open ? (
     <div className="overlay" style={{ display: "block" }}>
       <div className="form-wrapper">
         <div className="form-container">
           <h3 style={{ color: "darkgrey" }}>New Record</h3>
           <form onSubmit={handleSubmit}>
-            <div className="form-item">
-              <label>Link to Image</label>
-              <Field
-                className="input"
-                name="image"
-                component={renderInput}
-                type="text"
-                placeholder="Image ..."
-              />
-            </div>
-            <div className="form-item">
-              <label>Title</label>
-              <Field
-                name="title"
-                component={renderInput}
-                type="text"
-                placeholder="Title .."
-              />
-            </div>
-            <div className="form-item">
-              <label>Artist(s)</label>
-              <Field
-                name="artists"
-                component={renderInput}
-                type="text"
-                placeholder="Add artists seperated by coma .."
-              />
-            </div>
-            <div className="form-item">
-              <label>Year Published</label>
-              <Field
-                name="year"
-                component={renderInput}
-                type="number"
-                placeholder="Add year (YYYY) .."
-              />
-            </div>
-            <div className="form-item">
-              <label>Label</label>
-              <Field
-                name="label"
-                component={renderInput}
-                type="text"
-                placeholder="Label .."
-              />
-            </div>
-            <div className="form-item">
-              <label>Genre(s)</label>
-              <Field
-                name="genres"
-                component={renderInput}
-                type="text"
-                placeholder="Add genres seperated by coma .."
-              />
-            </div>
+            <Field
+              className="input"
+              name="image"
+              component={renderField}
+              type="text"
+              placeholder="Image ..."
+              label="Link to Image"
+            />
+
+            <Field
+              className="input"
+              name="title"
+              component={renderField}
+              type="text"
+              placeholder="Title .."
+              label="Title"
+            />
+
+            <Field
+              className="input"
+              name="artists"
+              component={renderField}
+              type="text"
+              placeholder="Add artists seperated by coma .."
+              label="Artist(s)"
+            />
+
+            <Field
+              className="input"
+              name="year"
+              component={renderField}
+              type="text"
+              placeholder="Add year (YYYY) .."
+              label="Year Published"
+            />
+
+            <Field
+              className="input"
+              name="label"
+              component={renderField}
+              type="text"
+              placeholder="Label .."
+              label="Label"
+            />
+
+            <Field
+              className="input"
+              name="genres"
+              component={renderField}
+              type="text"
+              placeholder="Add genres seperated by coma .."
+              label="Genre(s)"
+            />
+
             <div>add tracks form</div>
-            <div className="form-item">
-              <label>Available</label>
-              <Field name="available" component="checkbox" />
-            </div>
-            <div className="form-item">
-              <label>Favorite</label>
-              <Field name="favorite" component="checkbox" />
-            </div>
+
+            <Field
+              name="available"
+              component={renderField}
+              type="checkbox"
+              label="Available"
+            />
+
+            <Field
+              name="favorite"
+              component={renderField}
+              type="checkbox"
+              label="Favorite"
+            />
           </form>
           <div className="btn-group">
             <button
@@ -143,7 +152,7 @@ const RecordForm = ({
                 className="btn"
                 type="button"
                 disabled={pristine || submitting}
-                onClick={reset}
+                onClick={() => dispatch(reset)}
               >
                 Clear
               </button>
@@ -157,7 +166,7 @@ const RecordForm = ({
 
 export default compose(
   reduxForm({
-    form: "add-form",
+    form: "add",
     //validate
   })(RecordForm)
 );

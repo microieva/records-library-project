@@ -32,14 +32,40 @@ form .form-item {
 }
 
 form {
+    width: 100%;
     margin: 1rem;
     overflow-y: auto;
     overflow-x:hidden;
     border-bottom: var.$border-green;
+    align-self: center;
+}
+
+.form-item {
+    margin: 0 15%;
+}
+
+label {
+    text-align:start;
+    color: darkgrey;
+    //font-weight: bolder;
 }
 
 .input {
-    height: 1rem;
-    background-color: var.$background_header;
+    height: 2rem;
+    width: 100%;
+    padding: 0 1rem;
+    background-color: var.$green;
+    border: var.$border-green;
     border-radius: var.$small-radius;
+    outline:none;
+    color: var.$background_dark;
+    font-weight: bolder;
+}
+
+.input:focus {
+    //outline:none;
+    background-color: var.$background_dark;
+    
+    color: var.$green;
+    font-weight: bolder;
 }

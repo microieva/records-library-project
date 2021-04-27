@@ -16,6 +16,7 @@ export type AppState = {
 
 export type RecordsState = {
   records: Record[];
+  //form: Record;
 };
 
 export type UserState = User;
