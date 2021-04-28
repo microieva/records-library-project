@@ -3,9 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { compose } from "redux";
 import {
-  //FormAction,
   Field,
-  //FieldArrayFieldsProps,
   InjectedFormProps,
   reduxForm,
   WrappedFieldProps,
@@ -44,19 +42,43 @@ const renderField = ({
   </div>
 );
 
+/*const submit = (
+  formValues: 
+    {
+      _id:string,
+      image:string,
+      title:string,
+      authors:string[],
+      genres:string[],
+      label:string,
+      publishedYear:number,
+      available:boolean,
+      favorite:boolean,
+      tracks:[{
+        name:string,
+        sampleUrl:string,
+        duration:number
+      }]
+    }
+) => {
+  console.log('SUBMIT CLICK');
+  
+  dispatch(addRecord(formValues))
+}*/
+
 const RecordForm = ({
   pristine,
   submitting,
   reset,
   handleSubmit,
-}: //fields: {image}
-InjectedFormProps) => {
+}: InjectedFormProps) => {
   const open = useSelector((state: AppState) => state.ui.recFormOpen);
   const dispatch = useDispatch();
 
   const handleXClick = () => {
     dispatch(showRecordForm(false));
   };
+
   //const record = {}
   return open ? (
     <div className="overlay" style={{ display: "block" }}>
@@ -155,6 +177,7 @@ InjectedFormProps) => {
                 className="btn"
                 type="submit"
                 disabled={pristine || submitting}
+                //onClick={submit}
               >
                 Submit
               </button>
@@ -174,9 +197,43 @@ InjectedFormProps) => {
   ) : null;
 };
 
+//a wrapping component for onSubmit => handler with dispatch action
+
+/*const Form =() => {
+  const dispatch = useDispatch()
+
+  const submit= (
+    formValues: 
+      {
+        _id:string,
+        image:string,
+        title:string,
+        authors:string[],
+        genres:string[],
+        label:string,
+        publishedYear:number,
+        available:boolean,
+        favorite:boolean,
+        tracks:[{
+          name:string,
+          sampleUrl:string,
+          duration:number
+        }]
+      }
+  ) => {
+    console.log('SUBMIT CLICK');
+    dispatch(addRecord(formValues))
+  }
+  return (
+    <RecordForm 
+      onSubmit={submit}/>
+  )
+}*/
+
 export default compose(
   reduxForm({
     form: "addRecord",
+
     //validate
   })(RecordForm)
 );
