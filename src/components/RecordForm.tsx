@@ -5,6 +5,7 @@ import { compose } from "redux";
 import {
   //FormAction,
   Field,
+  //FieldArrayFieldsProps,
   InjectedFormProps,
   reduxForm,
   WrappedFieldProps,
@@ -24,7 +25,7 @@ interface CustomFieldProps {
 }
 
 const renderField = ({
-  //input,
+  input,
   type,
   placeholder,
   className,
@@ -34,7 +35,7 @@ const renderField = ({
   <div className="form-item">
     <label>{label}</label>
     <input
-      // {...input}
+      {...input}
       placeholder={placeholder}
       type={type}
       className={className}
@@ -48,7 +49,8 @@ const RecordForm = ({
   submitting,
   reset,
   handleSubmit,
-}: InjectedFormProps) => {
+}: //fields: {image}
+InjectedFormProps) => {
   const open = useSelector((state: AppState) => state.ui.recFormOpen);
   const dispatch = useDispatch();
 
@@ -69,6 +71,7 @@ const RecordForm = ({
               type="text"
               placeholder="Image ..."
               label="Link to Image"
+              //{...image}
             />
 
             <Field
@@ -78,6 +81,7 @@ const RecordForm = ({
               type="text"
               placeholder="Title .."
               label="Title"
+              //{...title}
             />
 
             <Field
@@ -87,6 +91,7 @@ const RecordForm = ({
               type="text"
               placeholder="Add artists seperated by coma .."
               label="Artist(s)"
+              //{...authors}
             />
 
             <Field
@@ -96,6 +101,7 @@ const RecordForm = ({
               type="text"
               placeholder="Add year (YYYY) .."
               label="Year Published"
+              //{...publishedYear}
             />
 
             <Field
@@ -105,6 +111,7 @@ const RecordForm = ({
               type="text"
               placeholder="Label .."
               label="Label"
+              //{...label}
             />
 
             <Field
@@ -114,6 +121,7 @@ const RecordForm = ({
               type="text"
               placeholder="Add genres seperated by coma .."
               label="Genre(s)"
+              //{...genres}
             />
 
             <div>add tracks form</div>
@@ -123,6 +131,7 @@ const RecordForm = ({
               component={renderField}
               type="checkbox"
               label="Available"
+              //{...available}
             />
 
             <Field
@@ -130,6 +139,7 @@ const RecordForm = ({
               component={renderField}
               type="checkbox"
               label="Favorite"
+              //{...favorite}
             />
           </form>
           <div className="btn-group">
@@ -166,7 +176,7 @@ const RecordForm = ({
 
 export default compose(
   reduxForm({
-    form: "add",
+    form: "addRecord",
     //validate
   })(RecordForm)
 );

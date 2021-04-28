@@ -5,7 +5,7 @@ export const LOGOUT = "LOGOUT";
 export const BORROW_RECORD = "BORROW_RECORD";
 export const SHOW_SELECTION = "SHOW_SELECTION";
 export const REMOVE_RECORD = "REMOVE_RECORD";
-export const SHOW_RECORD_INPUT = "SHOW_RECORD_INPUT";
+export const SHOW_RECORD_FORM = "SHOW_RECORD_FORM";
 export const ADD_RECORD = "ADD_RECORD";
 
 export type AppState = {
@@ -124,7 +124,7 @@ export type RemoveRecordAction = {
 export type UiActions = ShowSelectionAction | ShowRecordFormAction;
 
 export type ShowRecordFormAction = {
-  type: typeof SHOW_RECORD_INPUT;
+  type: typeof SHOW_RECORD_FORM;
   payload: boolean;
 };
 

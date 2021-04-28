@@ -2,7 +2,7 @@ import {
   UiState,
   UiActions,
   SHOW_SELECTION,
-  SHOW_RECORD_INPUT,
+  SHOW_RECORD_FORM,
 } from "../../types";
 
 export default function ui(
@@ -19,7 +19,7 @@ export default function ui(
       selectionOpen: action.payload,
     };
   }
-  case SHOW_RECORD_INPUT: {
+  case SHOW_RECORD_FORM: {
     return {
       ...state,
       recFormOpen: action.payload,
