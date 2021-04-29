@@ -16,7 +16,12 @@ export default function records(
     return { ...state, records: action.payload.records };
   }
   case ADD_RECORD: {
-    return { ...state, records: [...state.records, action.payload] };
+    const id = "0";
+    const newRec = {
+      _id: id,
+      ...action.payload,
+    };
+    return { ...state, records: [...state.records, newRec] };
   }
 
   default:

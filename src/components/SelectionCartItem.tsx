@@ -19,7 +19,7 @@ export const SelectionCartItem = (props: SelectionItemProps) => {
   //const user = useSelector((state: AppState) => state.user);
   //const available = record.available;
 
-  const handleRemoveClick = (id: string) => {
+  const handleRemoveClick = (id: any) => {
     dispatch(removeRecord(id));
   };
 

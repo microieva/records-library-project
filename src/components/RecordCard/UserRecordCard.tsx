@@ -13,7 +13,7 @@ export const UserRecordCard = (props: RecordCardProps) => {
   const { record } = props;
   const dispatch = useDispatch();
 
-  const handleBorrowClick = (id: string) => {
+  const handleBorrowClick = (id: any) => {
     dispatch(borrowRecord(id));
   };
 

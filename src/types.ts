@@ -16,7 +16,6 @@ export type AppState = {
 
 export type RecordsState = {
   records: Record[];
-  //form: Record;
 };
 
 export type UserState = User;
@@ -24,14 +23,14 @@ export type UserState = User;
 export type UiState = Ui;
 
 export type Record = {
-  _id: string;
+  _id?: string | undefined;
   image: string;
   title: string;
   authors: string[];
   publishedYear: number;
   label: string;
   genres: string[];
-  tracks: Track[];
+  tracks?: Track[];
   available: boolean;
   favorite: boolean;
 };

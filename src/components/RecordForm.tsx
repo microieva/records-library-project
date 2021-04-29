@@ -1,20 +1,18 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { compose } from "redux";
+import { useDispatch, connect } from "react-redux";
+//import { compose } from "redux";
 import {
   Field,
   InjectedFormProps,
   reduxForm,
   WrappedFieldProps,
+  FormErrors,
 } from "redux-form";
 
-import { AppState } from "../types";
+import { Record } from "../types";
 import { showRecordForm } from "../redux/actions";
 
-/*const validate = () => {
-
-}*/
 interface CustomFieldProps {
   type: string;
   placeholder?: string;
@@ -72,7 +70,7 @@ const RecordForm = ({
   reset,
   handleSubmit,
 }: InjectedFormProps) => {
-  const open = useSelector((state: AppState) => state.ui.recFormOpen);
+  //const open = useSelector((state: AppState) => state.ui.recFormOpen);
   const dispatch = useDispatch();
 
   const handleXClick = () => {
@@ -80,7 +78,7 @@ const RecordForm = ({
   };
 
   //const record = {}
-  return open ? (
+  return (
     <div className="overlay" style={{ display: "block" }}>
       <div className="form-wrapper">
         <div className="form-container">
@@ -177,7 +175,6 @@ const RecordForm = ({
                 className="btn"
                 type="submit"
                 disabled={pristine || submitting}
-                //onClick={submit}
               >
                 Submit
               </button>
@@ -194,7 +191,7 @@ const RecordForm = ({
         </div>
       </div>
     </div>
-  ) : null;
+  );
 };
 
 //a wrapping component for onSubmit => handler with dispatch action
@@ -230,10 +227,35 @@ const RecordForm = ({
   )
 }*/
 
-export default compose(
-  reduxForm({
-    form: "addRecord",
+const validate = (values: Record): FormErrors<Record> => {
+  const errors: FormErrors<Record> = {};
 
-    //validate
-  })(RecordForm)
-);
+  if (!values.image) {
+    errors.image = "Required field.";
+  } else if (!values.title) {
+    errors.title = "Required field.";
+  }
+
+  /*else if (values.publishedYear.trim()==="" || values.publishedYear.length < 4 ) {
+    errors.publishedYear = "Required field. In YYYY format."
+  }*/
+  return errors;
+};
+
+// export default compose(
+//   reduxForm<Record>({
+//     form: "addRecord",
+
+//     validate
+//   })(RecordForm)
+// );
+
+const form = reduxForm<{}>({
+  // destroyOnUnmount: false,
+  // forceUnregisterOnUnmount: true,
+  form: "addRecord",
+  //touchOnChange: true,
+  validate,
+})(RecordForm);
+
+export default connect(null)(form);

@@ -13,7 +13,7 @@ export const AdminRecordCard = (props: RecordCardProps) => {
   //const dispatch = useDispatch();
   //const available = record.available;
 
-  const handleDelClick = (id: string) => {
+  const handleDelClick = (id?: string) => {
     //dispatch(removeRecord(id));
     //+api call
   };
@@ -37,7 +37,7 @@ export const AdminRecordCard = (props: RecordCardProps) => {
         </button>
         <button
           className="btn btn-del"
-          onClick={() => handleDelClick(record._id)}
+          onClick={record._id ? () => handleDelClick(record._id) : undefined}
         >
           Delete
         </button>

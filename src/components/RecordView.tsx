@@ -31,7 +31,7 @@ export const RecordView = () => {
     history.push("/");
   };
 
-  const handleBorrowClick = (id: string) => {
+  const handleBorrowClick = (id: any) => {
     dispatch(borrowRecord(id));
   };
 
@@ -72,26 +72,28 @@ export const RecordView = () => {
             </div>
           </div>
           <div className="tracks-div">
-            {record.tracks.map((track, i) => (
-              <div key={i} className="track-div">
-                <p>{track.name}</p>
-                {/* <ThemeProvider theme={muiTheme}> */}
-                <AudioPlayer
-                  //classes={{root: classes.root}}
-                  elevation={1}
-                  variation="default"
-                  spacing={3}
-                  download={false}
-                  autoplay={false}
-                  order="standart"
-                  //preload="auto"
-                  loop={false}
-                  src={track.sampleUrl}
-                  useStyles={useStyles}
-                />
-                {/* </ThemeProvider> */}
-              </div>
-            ))}
+            {record.tracks
+              ? record.tracks.map((track, i) => (
+                <div key={i} className="track-div">
+                  <p>{track.name}</p>
+                  {/* <ThemeProvider theme={muiTheme}> */}
+                  <AudioPlayer
+                    //classes={{root: classes.root}}
+                    elevation={1}
+                    variation="default"
+                    spacing={3}
+                    download={false}
+                    autoplay={false}
+                    order="standart"
+                    //preload="auto"
+                    loop={false}
+                    src={track.sampleUrl}
+                    useStyles={useStyles}
+                  />
+                  {/* </ThemeProvider> */}
+                </div>
+              ))
+              : null}
           </div>
         </div>
       ) : null}

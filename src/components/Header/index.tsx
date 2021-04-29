@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { AppState } from "../../types";
 
 import { SelectionCart } from "../SelectionCart";
-import RecordForm from "../RecordForm";
+import NewRecord from "../NewRecord";
 import { PlainHeader } from "./PlainHeader";
 import { UserHeader } from "./UserHeader";
 import { AdminHeader } from "./AdminHeader";
@@ -18,7 +18,7 @@ export const Header = () => {
   return (
     <header>
       <SelectionCart />
-      <RecordForm />
+      <NewRecord />
       {!user.name ? (
         <PlainHeader />
       ) : user.isAdmin ? (
