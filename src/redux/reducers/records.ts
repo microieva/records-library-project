@@ -1,4 +1,5 @@
 import {
+  //FormState,
   RecordsState,
   RecordActions,
   GET_RECORDS,
@@ -16,11 +17,8 @@ export default function records(
     return { ...state, records: action.payload.records };
   }
   case ADD_RECORD: {
-    const id = "0";
-    const newRec = {
-      _id: id,
-      ...action.payload,
-    };
+    const newRec = action.payload;
+    console.log("REDUCER: newRec", newRec);
     return { ...state, records: [...state.records, newRec] };
   }
 

@@ -9,9 +9,14 @@ export const SHOW_RECORD_FORM = "SHOW_RECORD_FORM";
 export const ADD_RECORD = "ADD_RECORD";
 
 export type AppState = {
+  //form: FormState;
   records: RecordsState;
   user: UserState;
   ui: UiState;
+};
+
+export type FormState = {
+  addRecord: {};
 };
 
 export type RecordsState = {

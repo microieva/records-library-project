@@ -7,6 +7,22 @@ import createRootReducer from "./reducers";
 import rootSaga from "./sagas";
 
 const initState: AppState = {
+  /*form: {
+    addRecord: {
+      // values: {
+      //   _id:"",
+      //   image:"",
+      //   title: "",
+      //   authors:[],
+      //   label:"",
+      //   publishedYear:0,
+      //   genres:[],
+      //   tracks: [{name:"", duration:0, sampleUrl:""}],
+      //   favorite:false,
+      //   available:false
+      // }
+    }
+  },*/
   records: {
     records: [],
   },

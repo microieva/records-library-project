@@ -40,44 +40,18 @@ const renderField = ({
   </div>
 );
 
-/*const submit = (
-  formValues: 
-    {
-      _id:string,
-      image:string,
-      title:string,
-      authors:string[],
-      genres:string[],
-      label:string,
-      publishedYear:number,
-      available:boolean,
-      favorite:boolean,
-      tracks:[{
-        name:string,
-        sampleUrl:string,
-        duration:number
-      }]
-    }
-) => {
-  console.log('SUBMIT CLICK');
-  
-  dispatch(addRecord(formValues))
-}*/
-
 const RecordForm = ({
   pristine,
   submitting,
   reset,
   handleSubmit,
 }: InjectedFormProps) => {
-  //const open = useSelector((state: AppState) => state.ui.recFormOpen);
   const dispatch = useDispatch();
 
   const handleXClick = () => {
     dispatch(showRecordForm(false));
   };
 
-  //const record = {}
   return (
     <div className="overlay" style={{ display: "block" }}>
       <div className="form-wrapper">
@@ -193,39 +167,6 @@ const RecordForm = ({
     </div>
   );
 };
-
-//a wrapping component for onSubmit => handler with dispatch action
-
-/*const Form =() => {
-  const dispatch = useDispatch()
-
-  const submit= (
-    formValues: 
-      {
-        _id:string,
-        image:string,
-        title:string,
-        authors:string[],
-        genres:string[],
-        label:string,
-        publishedYear:number,
-        available:boolean,
-        favorite:boolean,
-        tracks:[{
-          name:string,
-          sampleUrl:string,
-          duration:number
-        }]
-      }
-  ) => {
-    console.log('SUBMIT CLICK');
-    dispatch(addRecord(formValues))
-  }
-  return (
-    <RecordForm 
-      onSubmit={submit}/>
-  )
-}*/
 
 const validate = (values: Record): FormErrors<Record> => {
   const errors: FormErrors<Record> = {};
