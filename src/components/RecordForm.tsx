@@ -172,6 +172,7 @@ const RecordForm = ({
                 className="btn"
                 type="submit"
                 disabled={pristine || submitting}
+                onClick={handleSubmit((data) => submit(data))}
               >
                 Submit
               </button>
