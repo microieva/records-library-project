@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, useSelector, useDispatch } from "react-redux";
-import { reset } from "redux-form";
+import { formValues, reset } from "redux-form";
 import { v4 as uuidv4 } from "uuid";
 
 import RecordForm from "./RecordForm";
@@ -19,7 +19,7 @@ const NewRecord = () => {
       _id: id,
       image: values.image,
       title: values.title,
-      authors: values.authors,
+      artists: values.artists,
       genres: values.genres,
       publishedYear: values.publishedYear,
       //tracks
@@ -32,7 +32,7 @@ const NewRecord = () => {
     dispatch(reset("addRecord"));
   };
 
-  return open ? <RecordForm onSubmit={handleSubmit} /> : null;
+  return open ? <RecordForm onSubmit={() => handleSubmit(formValues)} /> : null;
 };
 
 export default connect(null)(NewRecord);

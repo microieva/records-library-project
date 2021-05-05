@@ -7,10 +7,10 @@ import {
   InjectedFormProps,
   reduxForm,
   WrappedFieldProps,
-  FormErrors,
+  //FormErrors,
 } from "redux-form";
 
-import { Record } from "../types";
+//import { Record } from "../types";
 import { showRecordForm } from "../redux/actions";
 
 interface CustomFieldProps {
@@ -45,7 +45,8 @@ const RecordForm = ({
   submitting,
   reset,
   handleSubmit,
-}: InjectedFormProps) => {
+}: //fields:{}
+InjectedFormProps) => {
   const dispatch = useDispatch();
 
   const handleXClick = () => {
@@ -168,7 +169,7 @@ const RecordForm = ({
   );
 };
 
-const validate = (values: Record): FormErrors<Record> => {
+/*const validate = (values: Record): FormErrors<Record> => {
   const errors: FormErrors<Record> = {};
 
   if (!values.image) {
@@ -180,8 +181,8 @@ const validate = (values: Record): FormErrors<Record> => {
   /*else if (values.publishedYear.trim()==="" || values.publishedYear.length < 4 ) {
     errors.publishedYear = "Required field. In YYYY format."
   }*/
-  return errors;
-};
+//   return errors;
+// };
 
 // export default compose(
 //   reduxForm<Record>({
@@ -196,7 +197,7 @@ const form = reduxForm<{}>({
   // forceUnregisterOnUnmount: true,
   form: "addRecord",
   //touchOnChange: true,
-  validate,
+  //validate,
 })(RecordForm);
 
 export default connect(null)(form);

@@ -31,7 +31,7 @@ export type Record = {
   _id?: string | undefined;
   image: string;
   title: string;
-  authors: string[];
+  artists: string[];
   publishedYear: number;
   label: string;
   genres: string[];

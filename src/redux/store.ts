@@ -13,7 +13,7 @@ const initState: AppState = {
       //   _id:"",
       //   image:"",
       //   title: "",
-      //   authors:[],
+      //   artists:[],
       //   label:"",
       //   publishedYear:0,
       //   genres:[],

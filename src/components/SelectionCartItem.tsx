@@ -33,7 +33,7 @@ export const SelectionCartItem = (props: SelectionItemProps) => {
             style={{ textDecoration: "none", color: "inherit" }}
           >
             <h4 className="h4">{record.title}</h4>
-            <p className="p">{record.authors.join(", ")}</p>
+            <p className="p">{record.artists.join(", ")}</p>
           </Link>
         </div>
       </div>

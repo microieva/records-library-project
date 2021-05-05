@@ -62,7 +62,7 @@ export const RecordView = () => {
             <div>
               <h1>{record.title}</h1>
               <p>artist(s):</p>
-              <h3>{record.authors.join(", ")}</h3>
+              <h3>{record.artists.join(", ")}</h3>
               <p>label:</p>
               <h3>
                 {record.label}, {record.publishedYear}
