@@ -1,9 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
-import { useDispatch, connect } from "react-redux";
+import { useDispatch, connect, useSelector } from "react-redux";
 //import { compose } from "redux";
+import { v4 as uuidv4 } from "uuid";
 import {
   Field,
+  //formValues,
   InjectedFormProps,
   reduxForm,
   WrappedFieldProps,
@@ -11,7 +13,8 @@ import {
 } from "redux-form";
 
 //import { Record } from "../types";
-import { showRecordForm } from "../redux/actions";
+import { addRecord, showRecordForm } from "../redux/actions";
+import { AppState } from "../types";
 
 interface CustomFieldProps {
   type: string;
@@ -45,20 +48,39 @@ const RecordForm = ({
   submitting,
   reset,
   handleSubmit,
-}: //fields:{}
-InjectedFormProps) => {
+}: InjectedFormProps) => {
   const dispatch = useDispatch();
+  const open = useSelector((state: AppState) => state.ui.recFormOpen);
 
   const handleXClick = () => {
     dispatch(showRecordForm(false));
   };
 
-  return (
+  const submit = (values: any) => {
+    const id = uuidv4();
+    const newRecord = {
+      _id: id,
+      image: values.image,
+      title: values.title,
+      artists: values.artists,
+      genres: values.genres,
+      publishedYear: values.publishedYear,
+      //tracks
+      label: values.label,
+      favorite: values.favorite,
+      available: values.available,
+    };
+    console.log("SUBMIT VALUES: ", newRecord);
+    dispatch(addRecord(newRecord));
+    dispatch(reset);
+  };
+
+  return open ? (
     <div className="overlay" style={{ display: "block" }}>
       <div className="form-wrapper">
         <div className="form-container">
           <h3 style={{ color: "darkgrey" }}>New Record</h3>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(formValues) => submit(formValues)}>
             <Field
               className="input"
               name="image"
@@ -166,7 +188,7 @@ InjectedFormProps) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 /*const validate = (values: Record): FormErrors<Record> => {
